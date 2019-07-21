@@ -4,12 +4,12 @@ const express = require('express');
 const router = express.Router();
 
 router.post('/add_account', function (req, res) {
-    sw.Session.findOne({where: {token: req.body.token}}).then(function (session) {
+    sw.Session.findOne({where: {token: req.body.token}}).then(async function (session) {
         if (session === null) {
             res.send({status: 'error', errorCode: 'e0008', message: 'token is invalid.'});
             return;
         }
-        let result = sw.InstaAccount.create({
+        let result = await sw.InstaAccount.create({
             username: req.body.username,
             password: req.body.password,
             title: req.body.title,

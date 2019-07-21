@@ -8,6 +8,9 @@ var Session;
 var InstaAccount;
 var Tag;
 var Follow;
+var Block;
+var Like;
+var Comment;
 
 var pgUsername = 'postgres';
 var pgPassword = '3g5h165tsK65j1s564L69ka5R168kk37sut5ls3Sk2t';
@@ -29,6 +32,7 @@ module.exports = {
                 prepareInstaAccountModel(function () {
                     prepareTagModel();
                     prepareFollowModel();
+                    prepareBlockModel();
                 });
             });
             module.exports['sequelClient'] = sequelizeClient;
@@ -88,7 +92,7 @@ function prepareUserModel(done) {
     });
 }
 
-function prepareSessionModel(done) {
+function prepareSessionModel() {
     Session = sequelizeClient.define('Session', {
         sessionId: {
             type: Sequelize.BIGINT,
@@ -104,11 +108,10 @@ function prepareSessionModel(done) {
     Session.belongsTo(User, { foreignKey: 'userId' });
     Session.sync().then(function () {
         module.exports['Session'] = Session;
-        done();
     });
 }
 
-function prepareInstaAccountModel() {
+function prepareInstaAccountModel(done) {
     InstaAccount = sequelizeClient.define('InstaAccount', {
         instaAccountId:  {
             type: Sequelize.BIGINT,
@@ -124,10 +127,11 @@ function prepareInstaAccountModel() {
     InstaAccount.belongsTo(User, { foreignKey: 'userId' });
     InstaAccount.sync().then(function () {
         module.exports['InstaAccount'] = InstaAccount;
+        done();
     });
 }
 
-function prepareTagModel(done) {
+function prepareTagModel() {
     Tag = sequelizeClient.define('Tag', {
         tagId:  {
             type: Sequelize.BIGINT,
@@ -141,13 +145,12 @@ function prepareTagModel(done) {
     Tag.belongsTo(InstaAccount, { foreignKey: 'instaAccountId' });
     Tag.sync().then(function () {
         module.exports['Tag'] = Tag;
-        done();
     });
 }
 
-function prepareFollowModel(done) {
+function prepareFollowModel() {
     Follow = sequelizeClient.define('Follow', {
-        tagId:  {
+        followId:  {
             type: Sequelize.BIGINT,
             primaryKey: true,
             autoIncrement: true
@@ -159,6 +162,57 @@ function prepareFollowModel(done) {
     Follow.belongsTo(InstaAccount, { foreignKey: 'instaAccountId' });
     Follow.sync().then(function () {
         module.exports['Follow'] = Follow;
-        done();
+    });
+}
+
+function prepareBlockModel() {
+    Block = sequelizeClient.define('Block', {
+        blockId:  {
+            type: Sequelize.BIGINT,
+            primaryKey: true,
+            autoIncrement: true
+        },
+        data: Sequelize.STRING,
+        type: Sequelize.INTEGER
+    }, {
+        freezeTableName: true
+    });
+    Block.belongsTo(InstaAccount, { foreignKey: 'instaAccountId' });
+    Block.sync().then(function () {
+        module.exports['Block'] = Block;
+    });
+}
+
+function prepareLikeModel() {
+    Like = sequelizeClient.define('Like', {
+        likeId:  {
+            type: Sequelize.BIGINT,
+            primaryKey: true,
+            autoIncrement: true
+        },
+        username: Sequelize.STRING,
+    }, {
+        freezeTableName: true
+    });
+    Like.belongsTo(InstaAccount, { foreignKey: 'instaAccountId' });
+    Like.sync().then(function () {
+        module.exports['Like'] = Like;
+    });
+}
+
+function prepareCommentModel() {
+    Comment = sequelizeClient.define('Comment', {
+        commentId:  {
+            type: Sequelize.BIGINT,
+            primaryKey: true,
+            autoIncrement: true
+        },
+        username: Sequelize.STRING,
+    }, {
+        freezeTableName: true
+    });
+    Comment.belongsTo(InstaAccount, { foreignKey: 'instaAccountId' });
+    Comment.sync().then(function () {
+        module.exports['Comment'] = Comment;
     });
 }

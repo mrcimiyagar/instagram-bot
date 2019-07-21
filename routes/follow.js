@@ -42,7 +42,7 @@ router.post('/remove_follow_target', function (req, res) {
                 res.send({status: 'error', errorCode: 'e0026', message: 'You have not added this Instagram account.'});
                 return;
             }
-            sw.Follow.findOne({where: { [op.and]: [{instaAccountId: instaAcc.instaAccountId}, {username: req.body.username}]}}).then(async function (follow) {
+            sw.Follow.findOne({where: { [op.and]: [{instaAccountId: instaAcc.instaAccountId}, {followId: req.body.followId}]}}).then(function (follow) {
                 if (follow === null) {
                     res.send({status: 'error', errorCode: 'e0027', message: 'Follow target does not exist.'});
                     return;
@@ -65,7 +65,7 @@ router.post('/get_follow_targets', function (req, res) {
                 res.send({status: 'error', errorCode: 'e0029', message: 'You have not added this Instagram account.'});
                 return;
             }
-            sw.Follow.findAll({where: {instaAccountId: instaAcc.instaAccountId}}).then(async function (follows) {
+            sw.Follow.findAll({where: {instaAccountId: instaAcc.instaAccountId}}).then(function (follows) {
                 res.send({status: 'success', follow_targets: follows, message: "Follow target created successfully."});
             });
         });

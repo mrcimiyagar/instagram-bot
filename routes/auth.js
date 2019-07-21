@@ -62,12 +62,12 @@ router.post('/verify', function (req, res) {
            uacc.pending = false;
            uacc.vCode = '';
            uacc.save();
-           sw.User.findOne({where: {email: uacc.email}}).then(function (user) {
-               sw.Session.create({
+           sw.User.findOne({where: {email: uacc.email}}).then(async function (user) {
+               let result = await sw.Session.create({
                    userId: user.userId,
                    token: tools.makeRandomCode(64)
                });
-               res.send({status: 'success', message: 'you verified your account successfully.'});
+               res.send({status: 'success', session: result, message: 'you verified your account successfully.'});
            });
        }
        else {
@@ -84,21 +84,26 @@ router.post('/register', function(req, res) {
                 req.body.email,
                 'InstaAiBot Registration',
                 'hello ' + req.body.firstName + ' ! \n' + 'Your verification code is : ' + vCode,
-                function () {
-                    sw.UserAccount.create({
+                async function () {
+                    let result = await sw.UserAccount.create({
                         email: req.body.email,
                         pending: true,
                         forgot: false,
                         vCode: vCode
                     });
-                    sw.User.create({
+                    let result2 = await sw.User.create({
                         username: req.body.username,
                         password: req.body.password,
                         firstName: req.body.firstName,
                         lastName: req.body.lastName,
                         email: req.body.email
                     });
-                    res.send({status: 'success', message: "we've sent verification code to your email."});
+                    res.send({
+                        status: 'success',
+                        userAccount: result,
+                        user: result2,
+                        message: "we've sent verification code to your email."
+                    });
                 },
                 function () {
                     res.send({status: 'error', errorCode: 'e0002', message: 'could not send verification email'});
