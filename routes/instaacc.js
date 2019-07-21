@@ -1,0 +1,50 @@
+const sw = require('../sequel-wrapper');
+const express = require('express');
+
+const router = express.Router();
+
+router.post('/add_account', function (req, res) {
+    sw.Session.findOne({where: {token: req.body.token}}).then(function (session) {
+        if (session === null) {
+            res.send({status: 'error', errorCode: 'e0008', message: 'token is invalid.'});
+            return;
+        }
+        let result = sw.InstaAccount.create({
+            username: req.body.username,
+            password: req.body.password,
+            title: req.body.title,
+            userId: session.userId
+        });
+        res.send({status: 'success', instaAccount: result, message: "Instagram account added successfully."});
+    });
+});
+
+router.post('/remove_account', function (req, res) {
+    sw.Session.findOne({where: {token: req.body.token}}).then(function (session) {
+        if (session === null) {
+            res.send({status: 'error', errorCode: 'e0009', message: 'token is invalid.'});
+            return;
+        }
+        sw.InstaAccount.findOne({where: {username: req.body.username, userId: session.user}}).then(function (instaAcc) {
+            if (instaAcc === null) {
+                res.send({status: 'error', errorCode: 'e0010', message: 'you have not added instagram account.'});
+            }
+            instaAcc.destroy({force: true});
+            res.send({status: 'success', instaAccount: result, message: "Instagram account added successfully."});
+        });
+    });
+});
+
+router.post('/get_accounts', function (req, res) {
+    sw.Session.findOne({where: {token: req.body.token}}).then(function (session) {
+        if (session === null) {
+            res.send({status: 'error', errorCode: 'e0011', message: 'token is invalid.'});
+            return;
+        }
+        sw.InstaAccount.findAll({where: {userId: session.userId}}).then(function (instaAccs) {
+            res.send({status: 'success', instaAccounts: instaAccs, message: "Instagram account added successfully."});
+        });
+    });
+});
+
+module.exports = router;
