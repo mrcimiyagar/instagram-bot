@@ -9,6 +9,7 @@ var sw = require('./sequel-wrapper');
 var auth = require('./routes/auth');
 var instaacc = require('./routes/instaacc');
 var tags = require('./routes/tags');
+var follow = require('./routes/follow');
 
 var app = express();
 
@@ -29,6 +30,7 @@ sw.setup();
 app.use('/api/auth', auth);
 app.use('/api/insta_acc', instaacc);
 app.use('/api/tags', tags);
+app.use('/api/follow', follow);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

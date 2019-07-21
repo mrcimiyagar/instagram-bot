@@ -7,6 +7,7 @@ var User;
 var Session;
 var InstaAccount;
 var Tag;
+var Follow;
 
 var pgUsername = 'postgres';
 var pgPassword = '3g5h165tsK65j1s564L69ka5R168kk37sut5ls3Sk2t';
@@ -27,6 +28,7 @@ module.exports = {
                 prepareSessionModel();
                 prepareInstaAccountModel(function () {
                     prepareTagModel();
+                    prepareFollowModel();
                 });
             });
             module.exports['sequelClient'] = sequelizeClient;
@@ -138,7 +140,25 @@ function prepareTagModel(done) {
     });
     Tag.belongsTo(InstaAccount, { foreignKey: 'instaAccountId' });
     Tag.sync().then(function () {
-        module.exports['Tag'] = InstaAccount;
+        module.exports['Tag'] = Tag;
+        done();
+    });
+}
+
+function prepareFollowModel(done) {
+    Follow = sequelizeClient.define('Follow', {
+        tagId:  {
+            type: Sequelize.BIGINT,
+            primaryKey: true,
+            autoIncrement: true
+        },
+        username: Sequelize.STRING
+    }, {
+        freezeTableName: true
+    });
+    Follow.belongsTo(InstaAccount, { foreignKey: 'instaAccountId' });
+    Follow.sync().then(function () {
+        module.exports['Follow'] = Follow;
         done();
     });
 }
