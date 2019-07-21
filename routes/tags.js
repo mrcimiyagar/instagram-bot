@@ -63,4 +63,26 @@ router.post('/remove_tag', function (req, res) {
     });
 });
 
+router.post('/get_tags', function (req, res) {
+    sw.Session.findOne({where: {token: req.body.token}}).then(function (session) {
+        if (session === null) {
+            res.send({status: 'error', errorCode: 'e0018', message: 'Token is invalid.'});
+            return;
+        }
+        sw.InstaAccount.findOne({where: {userId: session.userId, instaAccountId: req.body.instaAccountId}}).then(function (instaAcc) {
+            if (instaAcc === null) {
+                res.send({status: 'error', errorCode: 'e0019', message: 'You have not added this Instagram account.'});
+                return;
+            }
+            sw.Tag.findAll({
+                where: {
+                    instaAccountId: instaAcc.instaAccountId
+                }
+            }).then(function (tags) {
+                res.send({status: 'success', tags: tags, message: "Tags fetched successfully."});
+            });
+        });
+    });
+});
+
 module.exports = router;

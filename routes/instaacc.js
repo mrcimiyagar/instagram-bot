@@ -30,7 +30,7 @@ router.post('/remove_account', function (req, res) {
                 res.send({status: 'error', errorCode: 'e0010', message: 'you have not added instagram account.'});
             }
             instaAcc.destroy({force: true});
-            res.send({status: 'success', instaAccount: result, message: "Instagram account added successfully."});
+            res.send({status: 'success', instaAccount: result, message: "Instagram account removed successfully."});
         });
     });
 });
@@ -42,7 +42,7 @@ router.post('/get_accounts', function (req, res) {
             return;
         }
         sw.InstaAccount.findAll({where: {userId: session.userId}}).then(function (instaAccs) {
-            res.send({status: 'success', instaAccounts: instaAccs, message: "Instagram account added successfully."});
+            res.send({status: 'success', instaAccounts: instaAccs, message: "Instagram accounts fetched successfully."});
         });
     });
 });
