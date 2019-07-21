@@ -55,7 +55,7 @@ router.post('/remove_block_target', function (req, res) {
     });
 });
 
-router.post('/get_block_target', function (req, res) {
+router.post('/get_block_targets', function (req, res) {
     sw.Session.findOne({where: {token: req.body.token}}).then(function (session) {
         if (session === null) {
             res.send({status: 'error', errorCode: 'e0036', message: 'Token is invalid.'});

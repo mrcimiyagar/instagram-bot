@@ -48,13 +48,13 @@ router.post('/remove_like_target', function (req, res) {
                     return;
                 }
                 like.destroy({force: true});
-                res.send({status: 'success', like: like, message: "Block target removed successfully."});
+                res.send({status: 'success', like: like, message: "Like target removed successfully."});
             });
         });
     });
 });
 
-router.post('/get_block_target', function (req, res) {
+router.post('/get_like_targets', function (req, res) {
     sw.Session.findOne({where: {token: req.body.token}}).then(function (session) {
         if (session === null) {
             res.send({status: 'error', errorCode: 'e0043', message: 'Token is invalid.'});

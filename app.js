@@ -11,6 +11,8 @@ var instaacc = require('./routes/instaacc');
 var tags = require('./routes/tags');
 var follow = require('./routes/follow');
 var block = require('./routes/block');
+var like = require('./routes/like');
+var comment = require('./routes/comment');
 
 var app = express();
 
@@ -33,6 +35,8 @@ app.use('/api/insta_acc', instaacc);
 app.use('/api/tags', tags);
 app.use('/api/follow', follow);
 app.use('/api/block', block);
+app.use('/api/like', like);
+app.use('/api/comment', comment);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
