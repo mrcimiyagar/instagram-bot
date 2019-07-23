@@ -13,6 +13,7 @@ var follow = require('./routes/follow');
 var block = require('./routes/block');
 var like = require('./routes/like');
 var comment = require('./routes/comment');
+var index = require('./routes/index');
 
 var app = express();
 
@@ -37,6 +38,7 @@ app.use('/api/follow', follow);
 app.use('/api/block', block);
 app.use('/api/like', like);
 app.use('/api/comment', comment);
+app.use('/api/index', index);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
