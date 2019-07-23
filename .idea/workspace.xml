@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2d00b8d6-f86e-4b64-95d3-8c2d87f26a74" name="Default" comment="finished stage 1.">
-      <change afterPath="$PROJECT_DIR$/client/client.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/block.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/block.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/comment.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/comment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/follow.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/follow.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/instaacc.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/instaacc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/like.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/like.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/tags.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/tags.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sequel-wrapper.js" beforeDir="false" afterPath="$PROJECT_DIR$/sequel-wrapper.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools.js" beforeDir="false" afterPath="$PROJECT_DIR$/tools.js" afterDir="false" />
-    </list>
+    <list default="true" id="2d00b8d6-f86e-4b64-95d3-8c2d87f26a74" name="Default" comment="finished stage 1." />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +85,7 @@
       <workItem from="1563617151667" duration="23493000" />
       <workItem from="1563885558235" duration="4984000" />
       <workItem from="1563893038911" duration="85000" />
-      <workItem from="1563897126764" duration="1891000" />
+      <workItem from="1563897126764" duration="2519000" />
     </task>
     <task id="LOCAL-00001" summary="finished 3 routers.">
       <created>1563732244525</created>
@@ -134,7 +122,14 @@
       <option name="project" value="LOCAL" />
       <updated>1563741367239</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="finished stage 1.">
+      <created>1563899035477</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1563899035477</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
