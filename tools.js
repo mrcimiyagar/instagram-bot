@@ -15,12 +15,13 @@ module.exports = {
     },
     'sendMail': function (destination, subject, content, success, failure) {
         const nodemailer = require('nodemailer');
-        const gmailUsername = 'username';
-        const gmailPassword = 'password';
+        const gmailUsername = 'admin-email-username';
+        const gmailPassword = 'admin-email-password';
         const smtpTransport = nodemailer.createTransport({
             host: "smtp.gmail.com",
             secureConnection: false,
             port: 587,
+            pool: true,
             tls: {
                 ciphers:'SSLv3'
             },
@@ -32,7 +33,7 @@ module.exports = {
         });
         var mailOptions={
             from: gmailUsername,
-            to : req.body.email,
+            to : destination,
             subject : subject,
             text : content
         };

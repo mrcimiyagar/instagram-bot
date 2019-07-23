@@ -1,6 +1,6 @@
 const sw = require('../sequel-wrapper');
 const express = require('express');
-const Sequelize = require('Sequelize');
+const Sequelize = require('sequelize');
 const op = Sequelize.Op;
 
 const router = express.Router();

@@ -32,7 +32,7 @@ sw.setup();
 
 app.use('/api/auth', auth);
 app.use('/api/insta_acc', instaacc);
-app.use('/api/tags', tags);
+app.use('/api/tag', tags);
 app.use('/api/follow', follow);
 app.use('/api/block', block);
 app.use('/api/like', like);

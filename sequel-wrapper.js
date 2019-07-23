@@ -19,23 +19,32 @@ var dbName = 'InstaAiBot';
 module.exports = {
     setup: function() {
 
-        pgtools.createdb({
+        const config = {
             user: pgUsername,
             password: pgPassword,
             port: 5432,
             host: 'localhost'
-        }, dbName, function (err, res) {
-            prepareSequelizeInstance();
-            prepareUserAccountModel();
-            prepareUserModel(function() {
-                prepareSessionModel();
-                prepareInstaAccountModel(function () {
-                    prepareTagModel();
-                    prepareFollowModel();
-                    prepareBlockModel();
+        };
+
+        pgtools.dropdb(config, dbName, function (err, res) {
+            if (err !== null && err !== undefined) {
+                console.log(err);
+            }
+            pgtools.createdb(config, dbName, function (err, res) {
+                prepareSequelizeInstance();
+                prepareUserAccountModel();
+                prepareUserModel(function() {
+                    prepareSessionModel();
+                    prepareInstaAccountModel(function () {
+                        prepareTagModel();
+                        prepareFollowModel();
+                        prepareBlockModel();
+                        prepareLikeModel();
+                        prepareCommentModel();
+                    });
                 });
+                module.exports['sequelClient'] = sequelizeClient;
             });
-            module.exports['sequelClient'] = sequelizeClient;
         });
     }
 };

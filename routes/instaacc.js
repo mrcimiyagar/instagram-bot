@@ -25,12 +25,12 @@ router.post('/remove_account', function (req, res) {
             res.send({status: 'error', errorCode: 'e0009', message: 'token is invalid.'});
             return;
         }
-        sw.InstaAccount.findOne({where: {username: req.body.username, userId: session.user}}).then(function (instaAcc) {
+        sw.InstaAccount.findOne({where: {username: req.body.username, userId: session.userId}}).then(function (instaAcc) {
             if (instaAcc === null) {
                 res.send({status: 'error', errorCode: 'e0010', message: 'you have not added instagram account.'});
             }
             instaAcc.destroy({force: true});
-            res.send({status: 'success', instaAccount: result, message: "Instagram account removed successfully."});
+            res.send({status: 'success', instaAccount: instaAcc, message: "Instagram account removed successfully."});
         });
     });
 });

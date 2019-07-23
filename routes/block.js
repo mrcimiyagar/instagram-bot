@@ -1,6 +1,6 @@
 const sw = require('../sequel-wrapper');
 const express = require('express');
-const Sequelize = require('Sequelize');
+const Sequelize = require('sequelize');
 const op = Sequelize.Op;
 
 const router = express.Router();
@@ -26,7 +26,7 @@ router.post('/add_block_target', function (req, res) {
                     type: req.body.type,
                     data: req.body.data
                 });
-                res.send({status: 'success', block: result, message: "Block target created successfully."});
+                res.send({status: 'success', blockTarget: result, message: "Block target created successfully."});
             });
         });
     });
@@ -49,7 +49,7 @@ router.post('/remove_block_target', function (req, res) {
                     return;
                 }
                 block.destroy({force: true});
-                res.send({status: 'success', block: block, message: "Block target removed successfully."});
+                res.send({status: 'success', blockTarget: block, message: "Block target removed successfully."});
             });
         });
     });
@@ -67,7 +67,7 @@ router.post('/get_block_targets', function (req, res) {
                 return;
             }
             sw.Block.findOne({where: {instaAccountId: instaAcc.instaAccountId}}).then(async function (blocks) {
-                res.send({status: 'success', blocks: blocks, message: "Block targets fetched successfully."});
+                res.send({status: 'success', blockTargets: blocks, message: "Block targets fetched successfully."});
             });
         });
     });

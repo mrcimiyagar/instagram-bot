@@ -1,6 +1,6 @@
 const sw = require('../sequel-wrapper');
 const express = require('express');
-const Sequelize = require('Sequelize');
+const Sequelize = require('sequelize');
 const op = Sequelize.Op;
 
 const router = express.Router();
@@ -25,7 +25,7 @@ router.post('/add_follow_target', function (req, res) {
                     username: req.body.username,
                     instaAccountId: instaAcc.instaAccountId
                 });
-                res.send({status: 'success', follow_target: result, message: "Follow target created successfully."});
+                res.send({status: 'success', followTarget: result, message: "Follow target created successfully."});
             });
         });
     });
@@ -48,7 +48,7 @@ router.post('/remove_follow_target', function (req, res) {
                     return;
                 }
                 follow.destroy({force: true});
-                res.send({status: 'success', follow_target: result, message: "Follow target removed successfully."});
+                res.send({status: 'success', followTarget: follow, message: "Follow target removed successfully."});
             });
         });
     });
@@ -66,7 +66,7 @@ router.post('/get_follow_targets', function (req, res) {
                 return;
             }
             sw.Follow.findAll({where: {instaAccountId: instaAcc.instaAccountId}}).then(function (follows) {
-                res.send({status: 'success', follow_targets: follows, message: "Follow target created successfully."});
+                res.send({status: 'success', followTargets: follows, message: "Follow target created successfully."});
             });
         });
     });
