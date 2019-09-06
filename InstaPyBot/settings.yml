@@ -1,0 +1,34 @@
+# Login Details
+username:             miranda_kasperson
+password:             9G5S4r68k41573k18643m5sTu1m384ry4
+
+# Optional Stuff: 
+#   Here are the default values and can be omitted (or changed)
+#   Careful with raising the limits
+
+# On/Off switches
+like:                 True
+follow:               True
+unfollow:             True
+
+# Limit details
+max_hour_follows:     10
+day_activity_hours:   16
+likes_per_follow:     3
+unfollows_per_follow: 2
+explores_per_follow:  10
+
+# Max users the bot will concurrently follow
+max_followed:         100
+
+# Sleep times per request and on spam detection
+mean_wait_time:       1
+spam_wait_time:       43200
+
+# Print model details
+#   Logistic regression coefficents and intercept
+display_coefficients: False
+
+# Data weighting rate of decay; time for data to half in 'importance'
+data_half_life:       7
+

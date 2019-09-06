@@ -1,51 +1,41 @@
-var Sequelize = require('sequelize');
-var pgtools = require('pgtools');
+let Sequelize = require('sequelize');
+let pgTools = require('pgtools');
 
-var sequelizeClient;
-var UserAccount;
-var User;
-var Session;
-var InstaAccount;
-var Tag;
-var Follow;
-var Block;
-var Like;
-var Comment;
+let sequelizeClient;
+let UserAccount;
+let User;
+let Session;
+let InstaAccount;
+let Tag;
+let Follow;
+let Block;
+let Like;
+let Comment;
 
-var pgUsername = 'postgres';
-var pgPassword = '3g5h165tsK65j1s564L69ka5R168kk37sut5ls3Sk2t';
-var dbName = 'InstaAiBot';
+const pgUsername = 'postgres';
+const pgPassword = '3g5h165tsK65j1s564L69ka5R168kk37sut5ls3Sk2t';
+const dbName = 'InstaAiBot';
 
 module.exports = {
-    setup: function() {
-
+    setup: async function() {
         const config = {
             user: pgUsername,
             password: pgPassword,
             port: 5432,
             host: 'localhost'
         };
-
-        pgtools.dropdb(config, dbName, function (err, res) {
-            if (err !== null && err !== undefined) {
-                console.log(err);
-            }
-            pgtools.createdb(config, dbName, function (err, res) {
-                prepareSequelizeInstance();
-                prepareUserAccountModel();
-                prepareUserModel(function() {
-                    prepareSessionModel();
-                    prepareInstaAccountModel(function () {
-                        prepareTagModel();
-                        prepareFollowModel();
-                        prepareBlockModel();
-                        prepareLikeModel();
-                        prepareCommentModel();
-                    });
-                });
-                module.exports['sequelClient'] = sequelizeClient;
-            });
-        });
+        await pgTools.dropdb(config, dbName);
+        await pgTools.createdb(config, dbName);
+        prepareSequelizeInstance();
+        await prepareUserAccountModel();
+        await prepareUserModel();
+        await prepareSessionModel();
+        await prepareInstaAccountModel();
+        await prepareTagModel();
+        await prepareFollowModel();
+        await prepareBlockModel();
+        await prepareLikeModel();
+        await prepareCommentModel();
     }
 };
 
@@ -61,7 +51,7 @@ function prepareSequelizeInstance() {
     });
 }
 
-function prepareUserAccountModel() {
+async function prepareUserAccountModel() {
     UserAccount = sequelizeClient.define('UserAccount', {
         userAccountOId: {
             type: Sequelize.BIGINT,
@@ -75,12 +65,11 @@ function prepareUserAccountModel() {
     }, {
         freezeTableName: true
     });
-    UserAccount.sync().then(function () {
-        module.exports['UserAccount'] = UserAccount;
-    });
+    await UserAccount.sync();
+    module.exports['UserAccount'] = UserAccount;
 }
 
-function prepareUserModel(done) {
+async function prepareUserModel(done) {
     User = sequelizeClient.define('User', {
         userId: {
             type: Sequelize.BIGINT,
@@ -95,13 +84,11 @@ function prepareUserModel(done) {
     }, {
         freezeTableName: true
     });
-    User.sync().then(function () {
-        module.exports['User'] = User;
-        done();
-    });
+    await User.sync();
+    module.exports['User'] = User;
 }
 
-function prepareSessionModel() {
+async function prepareSessionModel() {
     Session = sequelizeClient.define('Session', {
         sessionId: {
             type: Sequelize.BIGINT,
@@ -115,12 +102,11 @@ function prepareSessionModel() {
         freezeTableName: true
     });
     Session.belongsTo(User, { foreignKey: 'userId' });
-    Session.sync().then(function () {
-        module.exports['Session'] = Session;
-    });
+    await Session.sync();
+    module.exports['Session'] = Session;
 }
 
-function prepareInstaAccountModel(done) {
+async function prepareInstaAccountModel(done) {
     InstaAccount = sequelizeClient.define('InstaAccount', {
         instaAccountId:  {
             type: Sequelize.BIGINT,
@@ -134,13 +120,11 @@ function prepareInstaAccountModel(done) {
         freezeTableName: true
     });
     InstaAccount.belongsTo(User, { foreignKey: 'userId' });
-    InstaAccount.sync().then(function () {
-        module.exports['InstaAccount'] = InstaAccount;
-        done();
-    });
+    await InstaAccount.sync();
+    module.exports['InstaAccount'] = InstaAccount;
 }
 
-function prepareTagModel() {
+async function prepareTagModel() {
     Tag = sequelizeClient.define('Tag', {
         tagId:  {
             type: Sequelize.BIGINT,
@@ -152,12 +136,11 @@ function prepareTagModel() {
         freezeTableName: true
     });
     Tag.belongsTo(InstaAccount, { foreignKey: 'instaAccountId' });
-    Tag.sync().then(function () {
-        module.exports['Tag'] = Tag;
-    });
+    await Tag.sync();
+    module.exports['Tag'] = Tag;
 }
 
-function prepareFollowModel() {
+async function prepareFollowModel() {
     Follow = sequelizeClient.define('Follow', {
         followId:  {
             type: Sequelize.BIGINT,
@@ -169,12 +152,11 @@ function prepareFollowModel() {
         freezeTableName: true
     });
     Follow.belongsTo(InstaAccount, { foreignKey: 'instaAccountId' });
-    Follow.sync().then(function () {
-        module.exports['Follow'] = Follow;
-    });
+    await Follow.sync();
+    module.exports['Follow'] = Follow;
 }
 
-function prepareBlockModel() {
+async function prepareBlockModel() {
     Block = sequelizeClient.define('Block', {
         blockId:  {
             type: Sequelize.BIGINT,
@@ -187,12 +169,11 @@ function prepareBlockModel() {
         freezeTableName: true
     });
     Block.belongsTo(InstaAccount, { foreignKey: 'instaAccountId' });
-    Block.sync().then(function () {
-        module.exports['Block'] = Block;
-    });
+    await Block.sync();
+    module.exports['Block'] = Block;
 }
 
-function prepareLikeModel() {
+async function prepareLikeModel() {
     Like = sequelizeClient.define('Like', {
         likeId:  {
             type: Sequelize.BIGINT,
@@ -204,12 +185,11 @@ function prepareLikeModel() {
         freezeTableName: true
     });
     Like.belongsTo(InstaAccount, { foreignKey: 'instaAccountId' });
-    Like.sync().then(function () {
-        module.exports['Like'] = Like;
-    });
+    await Like.sync();
+    module.exports['Like'] = Like;
 }
 
-function prepareCommentModel() {
+async function prepareCommentModel() {
     Comment = sequelizeClient.define('Comment', {
         commentId:  {
             type: Sequelize.BIGINT,
@@ -221,7 +201,6 @@ function prepareCommentModel() {
         freezeTableName: true
     });
     Comment.belongsTo(InstaAccount, { foreignKey: 'instaAccountId' });
-    Comment.sync().then(function () {
-        module.exports['Comment'] = Comment;
-    });
+    await Comment.sync();
+    module.exports['Comment'] = Comment;
 }

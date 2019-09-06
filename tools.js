@@ -15,8 +15,8 @@ module.exports = {
     },
     'sendMail': function (destination, subject, content, success, failure) {
         const nodemailer = require('nodemailer');
-        const gmailUsername = 'admin-email-username';
-        const gmailPassword = 'admin-email-password';
+        const gmailUsername = 'keyhan.mohammadi1997@gmail.com';
+        const gmailPassword = '2&b165sf4j)684tkt87El^o9w68i87u6s*4h48#98aq';
         const smtpTransport = nodemailer.createTransport({
             host: "smtp.gmail.com",
             secureConnection: false,

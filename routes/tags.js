@@ -1,4 +1,5 @@
 const sw = require('../sequel-wrapper');
+const ipb = require('../InstaPyBot/instapybot');
 const express = require('express');
 const Sequelize = require('sequelize');
 const op = Sequelize.Op;
@@ -30,6 +31,11 @@ router.post('/add_tag', function (req, res) {
                     title: req.body.title,
                     instaAccountId: instaAcc.instaAccountId
                 });
+                sw.Follow.findAll({where: {instaAccountId: instaAcc.instaAccountId}}).then(function (follows) {
+                    sw.Tag.findAll({where: {instaAccountId: instaAcc.instaAccountId}}).then(function (tags) {
+                        ipb.runInstaAgent(instaAcc.instaAccountId, instaAcc.username, instaAcc.password, follows, tags);
+                    });
+                });
                 res.send({status: 'success', tag: result, message: "Tag created successfully."});
             });
         });
@@ -58,6 +64,11 @@ router.post('/remove_tag', function (req, res) {
                     return;
                 }
                 tag.destroy({force: true});
+                sw.Follow.findAll({where: {instaAccountId: instaAcc.instaAccountId}}).then(function (follows) {
+                    sw.Tag.findAll({where: {instaAccountId: instaAcc.instaAccountId}}).then(function (tags) {
+                        ipb.runInstaAgent(instaAcc.instaAccountId, instaAcc.username, instaAcc.password, follows, tags);
+                    });
+                });
                 res.send({status: 'success', message: "Tag removed successfully."});
             });
         });

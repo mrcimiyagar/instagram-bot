@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var sw = require('./sequel-wrapper');
+let ipb = require('./InstaPyBot/instapybot');
 var auth = require('./routes/auth');
 var instaacc = require('./routes/instaacc');
 var tags = require('./routes/tags');
@@ -14,6 +15,11 @@ var block = require('./routes/block');
 var like = require('./routes/like');
 var comment = require('./routes/comment');
 var index = require('./routes/index');
+
+async function prepareTools() {
+  await sw.setup();
+  await ipb.setup();
+}
 
 var app = express();
 
@@ -29,7 +35,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-sw.setup();
+prepareTools().then(function () {});
 
 app.use('/api/auth', auth);
 app.use('/api/insta_acc', instaacc);

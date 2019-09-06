@@ -1,4 +1,5 @@
 const sw = require('../sequel-wrapper');
+const ipb = require('../InstaPyBot/instapybot');
 const express = require('express');
 const Sequelize = require('sequelize');
 const op = Sequelize.Op;
@@ -25,6 +26,11 @@ router.post('/add_follow_target', function (req, res) {
                     username: req.body.username,
                     instaAccountId: instaAcc.instaAccountId
                 });
+                sw.Follow.findAll({where: {instaAccountId: instaAcc.instaAccountId}}).then(function (follows) {
+                    sw.Tag.findAll({where: {instaAccountId: instaAcc.instaAccountId}}).then(function (tags) {
+                        ipb.runInstaAgent(instaAcc.instaAccountId, instaAcc.username, instaAcc.password, follows, tags);
+                    });
+                });
                 res.send({status: 'success', followTarget: result, message: "Follow target created successfully."});
             });
         });
@@ -48,6 +54,11 @@ router.post('/remove_follow_target', function (req, res) {
                     return;
                 }
                 follow.destroy({force: true});
+                sw.Follow.findAll({where: {instaAccountId: instaAcc.instaAccountId}}).then(function (follows) {
+                    sw.Tag.findAll({where: {instaAccountId: instaAcc.instaAccountId}}).then(function (tags) {
+                        ipb.runInstaAgent(instaAcc.instaAccountId, instaAcc.username, instaAcc.password, follows, tags);
+                    });
+                });
                 res.send({status: 'success', followTarget: follow, message: "Follow target removed successfully."});
             });
         });
