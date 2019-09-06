@@ -3,10 +3,11 @@ const exec = require('child_process').exec;
 const kue = require('kue');
 const sw = require('../sequel-wrapper');
 
-let jobs = kue.createQueue();
+let runJobs = kue.createQueue();
+let stopJobs = kue.createQueue();
 
 function createQueue(acc) {
-    jobs.process('account-run-agent-jobs-' + acc.instaAccountId, async function (job, done) {
+    runJobs.process('account-run-agent-jobs-' + acc.instaAccountId, async function (job, done) {
         await execCommand('pkill "insta-ai-bot-' + job.data.instaAccId + '"');
         let followStr = '';
         job.data.followTargets.forEach(function (follow) {
@@ -19,7 +20,7 @@ function createQueue(acc) {
         await execCommand('python instapybot.py ' + job.data.instaAccId + ' ' + job.data.username + ' ' + job.data.password + ' --follow' + followStr + ' --tag' + tagStr);
         done && done();
     });
-    jobs.process('account-stop-agent-jobs-' + acc.instaAccountId, async function (job, done) {
+    stopJobs.process('account-stop-agent-jobs-' + acc.instaAccountId, async function (job, done) {
         await execCommand('pkill "insta-ai-bot-' + job.data.instaAccId + '"');
         done && done();
     });
@@ -36,7 +37,7 @@ module.exports = {
         createQueue(acc);
     },
     runInstaAgent: function (instaAccId, username, password, followTargets, tagTargets) {
-        let job = jobs.create('account-run-agent-jobs-' + instaAccId, {
+        let job = runJobs.create('account-run-agent-jobs-' + instaAccId, {
             instaAccId : instaAccId,
             username : username,
             password : password,
@@ -46,7 +47,7 @@ module.exports = {
         job.save(function () {});
     },
     stopInstaAgent: async function (instaAccId) {
-        let job = jobs.create('account-stop-agent-jobs-' + instaAccId, {
+        let job = stopJobs.create('account-stop-agent-jobs-' + instaAccId, {
             instaAccId : instaAccId
         });
         job.save(function () {});

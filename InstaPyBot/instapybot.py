@@ -21,6 +21,13 @@ import json
 import numpy as np
 import pandas as pd
 from setproctitle import setproctitle, getproctitle
+from instapy import InstaPy
+from instapy import smart_run
+from instapy import set_workspace
+import time
+
+set_workspace(path=None)
+
 
 class ModifiedInstagramAPI(InstagramAPI):
     def SendRequest(self, endpoint, post=None, login=False):
@@ -163,14 +170,9 @@ class InstaBot:
     def set_tag_targets(self, tag_targets):
         self.tag_list = tag_targets
 
-    def set_auth(self, username, password):
-        self.username = username
-        self.password = password
+    def __init__(self, username, password, settings_directory='.'):
 
-    def __init__(self, settings_directory='.'):
-
-        self.username = ''
-        self.password = ''
+        session = InstaPy(username=username, password=password, headless_browser=True)
 
         self.tag_list = ['instagram']
         self.target_user_list = []
@@ -196,6 +198,10 @@ class InstaBot:
 
         self.settings_directory = settings_directory
         self.load_settings()
+
+        self.username = username
+        self.password = password
+
         self.directory = self.username if settings_directory == '.' else settings_directory
         if not os.path.exists(self.directory):
             os.makedirs(self.directory)
@@ -300,11 +306,6 @@ class InstaBot:
         self.api_lock.release()
         return ret
 
-    def get_tag_feed(self, tag):
-        ret = self.send_request(self.api.tagFeed, tag)
-        if ret is None or ret == 404: return None
-        return ret
-
     def get_user_feed(self, user_id):
         ret = self.send_request(self.api.getUserFeed, user_id)
         if ret is None or ret == 404: return None
@@ -313,7 +314,7 @@ class InstaBot:
     def like_media(self, media_id):
         self.hour_likes.put(media_id)
         if not (self.like): return
-        self.send_request(self.api.like, media_id)
+        #self.send_request(self.api.like, media_id)
 
     def follow_user(self, user_id, followed_queue):
         self.hour_follows.put(user_id)
@@ -480,7 +481,7 @@ class InstaBot:
         while True:
             print("fit_model: refresh settings")
             print("Refreshing settings")
-            self.load_settings()
+            #self.load_settings()
             print("fit_model: clear bad tags/target_users")
             try:
                 self.tag_list = [t for t in self.tag_list if t not in self.bad_tags]
@@ -798,35 +799,24 @@ if __name__ == '__main__':
 
     directory = '.'
 
-    bot = InstaBot(directory)
+    bot = InstaBot(sys.argv[2], sys.argv[3], directory)
 
-    bot.set_auth(sys.argv[2], sys.argv[3])
+    followTargets = ['thisisbillgates']
+    tagTargets = ['flowers']
 
-    followTargets = []
-    tagTargets = []
-
-    if (len(sys.argv) > 4):
-        argStage = 0
-        for i in range(4, len(sys.argv)):
-            if sys.argv[i] == '--follow' or sys.argv[i] == '--tag':
-                argStage += 1
-                continue
-            if argStage == 1:
-                followTargets.append(sys.argv[i])
-            elif argStage == 2:
-                tagTargets.append(sys.argv[i])
+    #if (len(sys.argv) > 4):
+    #    argStage = 0
+    #    for i in range(4, len(sys.argv)):
+    #        if sys.argv[i] == '--follow' or sys.argv[i] == '--tag':
+    #            argStage += 1
+    #            continue
+    #        if argStage == 1:
+    #            followTargets.append(sys.argv[i])
+    #        elif argStage == 2:
+    #            tagTargets.append(sys.argv[i])
 
     bot.set_follow_targets(followTargets)
     bot.set_tag_targets(tagTargets)
-
-    # set up logging
-    directory = bot.directory
-    if not os.path.exists(directory+'/log'):
-        os.makedirs(directory+'/log')
-    formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
-    handler = RotatingFileHandler(directory+'/log/debug.log', mode='a', maxBytes=1*1024*1024,
-                                  backupCount=10, encoding=None, delay=0)
-    handler.setFormatter(formatter)
 
     # run bot
     bot.run()
