@@ -1,27 +1,81 @@
 'use strict';
+
 const exec = require('child_process').exec;
 const kue = require('kue');
 const sw = require('../sequel-wrapper');
+const fs = require('fs');
 
 let runJobs = kue.createQueue();
 let stopJobs = kue.createQueue();
 
 function createQueue(acc) {
     runJobs.process('account-run-agent-jobs-' + acc.instaAccountId, async function (job, done) {
-        await execCommand('pkill "insta-ai-bot-' + job.data.instaAccId + '"');
-        let followStr = '';
-        job.data.followTargets.forEach(function (follow) {
-            followStr += ' ' + follow.username;
+
+        const mw = require('../mongo-wrapper');
+
+        await execCommand('pkill "insta-ai-bot-' + job.data.instaAccId + '"',
+            function(error, stdout, stderr){ callback(stdout); });
+
+        let config = {};
+
+        let followTargetsData = await sw.Follow.findAll();
+        let followTargets = [];
+        followTargetsData.forEach((followTarget) => {
+            followTargets.push(followTarget.username);
         });
-        let tagStr = '';
-        job.data.tagTargets.forEach(function (tag) {
-            tagStr += ' ' + tag.title;
+        config.follow = {};
+        config.follow.follow_targets = followTargets;
+
+        let likeTargetsData = await sw.Like.findAll();
+        let likeTargets = [];
+        likeTargetsData.forEach((likeTarget) => {
+            likeTargets.push(likeTarget.username);
         });
-        await execCommand('python instapybot.py ' + job.data.instaAccId + ' ' + job.data.username + ' ' + job.data.password + ' --follow' + followStr + ' --tag' + tagStr);
+        config.like = {};
+        config.like.like_targets = likeTargets;
+
+        let commentTargetsData = await sw.Comment.findAll();
+        let commentTargets = [];
+        commentTargetsData.forEach((commentTarget) => {
+            commentTargets.push(commentTarget.username);
+        });
+        config.comment = {};
+        config.comment.comment_targets = commentTargets;
+
+        let tagTargetsData = await sw.Tag.findAll();
+        let tagTargets = [];
+        tagTargetsData.forEach((tagTarget) => {
+            tagTargets.push(tagTarget.title);
+        });
+        config.tag = {};
+        config.tag.tag_targets = tagTargets;
+
+        let blockTargetsData = await sw.Block.findAll();
+        let blockTargets = [];
+        blockTargetsData.forEach((blockTarget) => {
+            blockTargets.push(blockTarget.data);
+        });
+        config.block = {};
+        config.block.block_targets = blockTargets;
+
+        let c = mw.Config;
+
+        const finalConfig = {...config, ...c};
+
+        fs.writeFile(`./InstaPyBot/${job.data.instaAccId}.json`, JSON.stringify(finalConfig), (err) => {
+            if (err) {
+                console.error(err);
+                return;
+            }
+            console.log("Config has been written to disk.");
+        });
+        await execCommand('python instapybot.py ' + job.data.instaAccId + ' "' + job.data.username + '" "' + job.data.password + '"',
+            function(error, stdout, stderr){ callback(stdout); });
         done && done();
     });
     stopJobs.process('account-stop-agent-jobs-' + acc.instaAccountId, async function (job, done) {
-        await execCommand('pkill "insta-ai-bot-' + job.data.instaAccId + '"');
+        await execCommand('pkill "insta-ai-bot-' + job.data.instaAccId + '"',
+            function(error, stdout, stderr){ callback(stdout); });
         done && done();
     });
 }
@@ -41,8 +95,6 @@ module.exports = {
             instaAccId : instaAccId,
             username : username,
             password : password,
-            followTargets : followTargets,
-            tagTargets : tagTargets
         });
         job.save(function () {});
     },

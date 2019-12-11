@@ -17,11 +17,7 @@ router.post('/add_account', function (req, res) {
             userId: session.userId
         });
         ipb.notifyInstaAccountCreated(result);
-        sw.Follow.findAll({where: {instaAccountId: result.instaAccountId}}).then(function (follows) {
-            sw.Tag.findAll({where: {instaAccountId: result.instaAccountId}}).then(function (tags) {
-                ipb.runInstaAgent(result.instaAccountId, result.username, result.password, follows, tags);
-            });
-        });
+        ipb.runInstaAgent(result.instaAccountId, result.username, result.password);
         res.send({status: 'success', instaAccount: result, message: "Instagram account added successfully."});
     });
 });

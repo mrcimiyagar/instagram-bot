@@ -1,6 +1,8 @@
+
 const sw = require('../sequel-wrapper');
 const express = require('express');
 const Sequelize = require('sequelize');
+const ipb = require("../InstaPyBot/instapybot");
 const op = Sequelize.Op;
 
 const router = express.Router();
@@ -26,6 +28,7 @@ router.post('/add_block_target', function (req, res) {
                     type: req.body.type,
                     data: req.body.data
                 });
+                ipb.runInstaAgent(instaAcc.instaAccountId, instaAcc.username, instaAcc.password);
                 res.send({status: 'success', blockTarget: result, message: "Block target created successfully."});
             });
         });
@@ -49,6 +52,7 @@ router.post('/remove_block_target', function (req, res) {
                     return;
                 }
                 block.destroy({force: true});
+                ipb.runInstaAgent(instaAcc.instaAccountId, instaAcc.username, instaAcc.password);
                 res.send({status: 'success', blockTarget: block, message: "Block target removed successfully."});
             });
         });

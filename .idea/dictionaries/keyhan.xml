@@ -2,8 +2,20 @@
   <dictionary name="keyhan">
     <words>
       <w>accs</w>
+      <w>commenters</w>
+      <w>dimpedia</w>
+      <w>dont</w>
+      <w>getproctitle</w>
+      <w>hashtags</w>
       <w>insta</w>
+      <w>instaacc</w>
+      <w>instapy</w>
+      <w>instapybot</w>
+      <w>likers</w>
+      <w>miryamcreed</w>
       <w>pkill</w>
+      <w>setproctitle</w>
+      <w>unfollow</w>
     </words>
   </dictionary>
 </component>

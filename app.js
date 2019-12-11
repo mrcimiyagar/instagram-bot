@@ -1,20 +1,21 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+let express = require('express');
+let path = require('path');
+let favicon = require('serve-favicon');
+let logger = require('morgan');
+let cookieParser = require('cookie-parser');
+let bodyParser = require('body-parser');
 
-var sw = require('./sequel-wrapper');
+let sw = require('./sequel-wrapper');
 let ipb = require('./InstaPyBot/instapybot');
-var auth = require('./routes/auth');
-var instaacc = require('./routes/instaacc');
-var tags = require('./routes/tags');
-var follow = require('./routes/follow');
-var block = require('./routes/block');
-var like = require('./routes/like');
-var comment = require('./routes/comment');
-var index = require('./routes/index');
+let auth = require('./routes/auth');
+let instaacc = require('./routes/instaacc');
+let tags = require('./routes/tags');
+let follow = require('./routes/follow');
+let block = require('./routes/block');
+let like = require('./routes/like');
+let comment = require('./routes/comment');
+let config = require('./routes/config');
+let index = require('./routes/index');
 
 async function prepareTools() {
   await sw.setup();
@@ -44,6 +45,7 @@ app.use('/api/follow', follow);
 app.use('/api/block', block);
 app.use('/api/like', like);
 app.use('/api/comment', comment);
+app.use('/api/config', config.router);
 app.use('/api/index', index);
 
 // catch 404 and forward to error handler

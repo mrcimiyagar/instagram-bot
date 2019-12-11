@@ -1,3 +1,5 @@
+
+const ipb = require("../InstaPyBot/instapybot");
 const sw = require('../sequel-wrapper');
 const express = require('express');
 const Sequelize = require('sequelize');
@@ -25,6 +27,7 @@ router.post('/add_comment_target', function (req, res) {
                     instaAccountId: instaAcc.instaAccountId,
                     username: req.body.username
                 });
+                ipb.runInstaAgent(instaAcc.instaAccountId, instaAcc.username, instaAcc.password);
                 res.send({status: 'success', commentTarget: result, message: "Comment target created successfully."});
             });
         });
@@ -48,6 +51,7 @@ router.post('/remove_comment_target', function (req, res) {
                     return;
                 }
                 comment.destroy({force: true});
+                ipb.runInstaAgent(instaAcc.instaAccountId, instaAcc.username, instaAcc.password);
                 res.send({status: 'success', commentTarget: comment, message: "Comment target removed successfully."});
             });
         });

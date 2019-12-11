@@ -10,7 +10,9 @@ import time
 set_workspace(path=None)
 
 # get an InstaPy session!
-session = InstaPy(username="test_robot123", password="x3.52r4k532Xtl1235.t1,k35t4i;.1l4K5yksarRt", headless_browser=True)
+session = InstaPy(username="miryamcreed",
+                  password="65@m84;l#41lde48$5k3561r5^1&mje8ja6464%58544ja",
+                  headless_browser=False)
 # session = InstaPy(username=insta_username, password=insta_password, headless_browser=True)
 # session = InstaPy(username=insta_username, password=insta_password, proxy_address='8.8.8.8', proxy_port=8080)
 

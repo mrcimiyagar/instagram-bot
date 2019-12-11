@@ -33,7 +33,7 @@ router.post('/add_tag', function (req, res) {
                 });
                 sw.Follow.findAll({where: {instaAccountId: instaAcc.instaAccountId}}).then(function (follows) {
                     sw.Tag.findAll({where: {instaAccountId: instaAcc.instaAccountId}}).then(function (tags) {
-                        ipb.runInstaAgent(instaAcc.instaAccountId, instaAcc.username, instaAcc.password, follows, tags);
+                        ipb.runInstaAgent(instaAcc.instaAccountId, instaAcc.username, instaAcc.password);
                     });
                 });
                 res.send({status: 'success', tag: result, message: "Tag created successfully."});
@@ -66,7 +66,7 @@ router.post('/remove_tag', function (req, res) {
                 tag.destroy({force: true});
                 sw.Follow.findAll({where: {instaAccountId: instaAcc.instaAccountId}}).then(function (follows) {
                     sw.Tag.findAll({where: {instaAccountId: instaAcc.instaAccountId}}).then(function (tags) {
-                        ipb.runInstaAgent(instaAcc.instaAccountId, instaAcc.username, instaAcc.password, follows, tags);
+                        ipb.runInstaAgent(instaAcc.instaAccountId, instaAcc.username, instaAcc.password);
                     });
                 });
                 res.send({status: 'success', message: "Tag removed successfully."});

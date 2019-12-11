@@ -114,4 +114,16 @@ router.post('/register', function(req, res) {
     });
 });
 
+router.post('/login', function(req, res) {
+    sw.User.findOne({where: {username: req.body.username, password: req.body.password}}).then(function(user) {
+        if (user == null) {
+            res.send({status: 'error', errorCode: 'e0055', message: 'username not found'});
+            return;
+        }
+        sw.Session.findOne({where: {userId: user.userId}}).then(function(session) {
+           res.send({status: 'success', session: session, message: 'logged in successfully.'});
+        });
+    });
+});
+
 module.exports = router;

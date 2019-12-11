@@ -20,6 +20,21 @@ async function register(username, password, firstName, lastName, email) {
     }
 }
 
+async function login(username, password) {
+    try {
+        const data = {
+            username: username,
+            password: password
+        };
+        let result = await axios.post('http://localhost:3000/api/auth/login', data);
+        console.log(result.data);
+        token = result.data.session.token;
+        return result;
+    } catch (e) {
+        console.error(e);
+    }
+}
+
 async function verify(email, vCode) {
     try {
         const data = {
@@ -312,90 +327,123 @@ async function getCommentTargets(instaAccId) {
     }
 }
 
+async function editConfig(instaAccId, config) {
+    try {
+        const data = {
+            token: token,
+            instaAccountId: instaAccId,
+            config: config
+        };
+        return await axios.post('http://localhost:3000/api/config/edit_config', data);
+    } catch (e) {
+        console.error(e);
+    }
+}
+
 // test driver ---------------------------------------------------------------------------------------------------------
 
 async function test() {
 
     // auth
-    let registerRes = await register('mohammadi_keyhan', '123', 'keyhan', 'mohammadi', 'theprogrammermachine@gmail.com');
-    console.log('result of register :\n', registerRes.data);
-    console.log('input the verification code :');
-    let vCode = '';
-    while (vCode.length === 0) {
-        vCode = await io.read();
-        if (vCode.length === 0) {
-            console.log('verification code can not be empty.');
-        }
-    }
-    let verifyRes = await verify('theprogrammermachine@gmail.com', vCode);
-    console.log('result of verify :\n', verifyRes.data);
-    let forgotPassRes = await forgotPassword('theprogrammermachine@gmail.com');
-    console.log('result of forgot_password :\n', forgotPassRes.data);
-    console.log('input the forgot password verification code :');
-    vCode = '';
-    while (vCode.length === 0) {
-        vCode = await io.read();
-        if (vCode.length === 0) {
-            console.log('verification code can not be empty.');
-        }
-    }
-    let resetPassRes = await resetPassword('theprogrammermachine@gmail.com', vCode, '456');
-    console.log('result of reset_password :\n', resetPassRes.data);
+    // let registerRes = await register('miryamcreed', '65@m84;l#41lde48$5k3561r5^1&mje8ja6464%58544ja', 'keyhan', 'mohammadi', 'theprogrammermachine@gmail.com');
+    // console.log('result of register :\n', registerRes.data);
+    // console.log('input the verification code :');
+    // let vCode = '';
+    // while (vCode.length === 0) {
+    //     vCode = await io.read();
+    //     if (vCode.length === 0) {
+    //         console.log('verification code can not be empty.');
+    //     }
+    // }
+    // let verifyRes = await verify('theprogrammermachine@gmail.com', vCode);
+    // console.log('result of verify :\n', verifyRes.data);
+    // let forgotPassRes = await forgotPassword('theprogrammermachine@gmail.com');
+    // console.log('result of forgot_password :\n', forgotPassRes.data);
+    // console.log('input the forgot password verification code :');
+    // vCode = '';
+    // while (vCode.length === 0) {
+    //     vCode = await io.read();
+    //     if (vCode.length === 0) {
+    //         console.log('verification code can not be empty.');
+    //     }
+    // }
+    // let resetPassRes = await resetPassword('theprogrammermachine@gmail.com', vCode, '65@m84;l#41lde48$5k3561r5^1&mje8ja6464%58544ja');
+    // console.log('result of reset_password :\n', resetPassRes.data);
+    //
+    let loginRes = await login('miryamcreed', '65@m84;l#41lde48$5k3561r5^1&mje8ja6464%58544ja');
+    console.log('result of login: \n', loginRes.data);
+    //
+    // // instaacc
+    // let addAccRes = await addInstaAccount('miryamcreed', '65@m84;l#41lde48$5k3561r5^1&mje8ja6464%58544ja', 'PreDimpedia Test');
+    // console.log('result of add_account :\n', addAccRes.data);
+    // let removeAccRes = await removeInstaAccount('miryamcreed');
+    // console.log('result of remove_account :\n', removeAccRes.data);
+    // let addAccRes2 = await addInstaAccount('miryamcreed', '65@m84;l#41lde48$5k3561r5^1&mje8ja6464%58544ja', 'PreDimpedia Test');
+    // console.log('result of add_account ( second request ) :\n', addAccRes2.data);
+    // let instaAccId = addAccRes2.data.instaAccount.instaAccountId;
+    // let getAccsRes = await getInstaAccounts();
+    // console.log('result of get_account :\n', getAccsRes.data);
+    //
+    // // tag
+    // let addTagRes = await addTag(instaAccId, 'food');
+    // console.log('result of add_tag :\n', addTagRes.data);
+    // let removeTagRes = await removeTag(instaAccId, 1);
+    // console.log('result of remove_tag :\n', removeTagRes.data);
+    // let getTagsRes = await getTags(instaAccId);
+    // console.log('result of get_tags :\n', getTagsRes.data);
+    // let searchTagsRes = await searchTags(instaAccId, 'fo'); // for example 'fo' as a part of 'food' for query
+    // console.log('result of search_tags :\n', searchTagsRes.data);
+    // let addTagRes2 = await addTag(instaAccId, 'food');
+    // console.log('result of add_tag :\n', addTagRes2.data);
+    //
+    // // block
+    // let addBlockRes = await addBlockTarget(instaAccId, 'bike', 1); // blockTargetType : 1 for tags. 2 for users
+    // console.log('result of add_block_target :\n', addBlockRes.data);
+    // let addBlockRes2 = await addBlockTarget(instaAccId, 'bike', 2); // blockTargetType : 1 for tags. 2 for users
+    // console.log('result of add_block_target ( second request ) :\n', addBlockRes2.data);
+    // let removeBlockRes = await removeBlockTarget(instaAccId, addBlockRes.data.blockTarget.blockId);
+    // console.log('result of remove_block_target :\n', removeBlockRes.data);
+    // let getBlocksRes = await getBlockTargets(instaAccId);
+    // console.log('result of get_block_targets :\n', getBlocksRes.data);
+    //
+    // // follow
+    // let addFollowRes = await addFollowTarget(instaAccId, 'jlo');
+    // console.log('result of add_follow_target :\n', addFollowRes.data);
+    // let removeFollowRes = await removeFollowTarget(instaAccId, addFollowRes.data.followTarget.followId);
+    // console.log('result of remove_follow_target :\n', removeFollowRes.data);
+    // let getFollowRes = await getFollowTargets(instaAccId);
+    // console.log('result of get_follow_targets :\n', getFollowRes.data);
+    // let addFollowRes2 = await addFollowTarget(instaAccId, 'jlo');
+    // console.log('result of add_follow_target :\n', addFollowRes2.data);
+    //
+    // // like
+    // let addLikeRes = await addLikeTarget(instaAccId, 'jlo');
+    // console.log('result of add_like_target :\n', addLikeRes.data);
+    // let removeLikeRes = await removeLikeTarget(instaAccId, addLikeRes.data.likeTarget.likeId);
+    // console.log('result of remove_like_target :\n', removeLikeRes.data);
+    // let getLikeRes = await getLikeTargets(instaAccId);
+    // console.log('result of get_like_targets :\n', getLikeRes.data);
+    // let addLikeRes2 = await addLikeTarget(instaAccId, 'jlo');
+    // console.log('result of add_like_target :\n', addLikeRes2.data);
+    //
+    // // comment
+    // let addCommentRes = await addCommentTarget(instaAccId, 'jlo');
+    // console.log('result of add_follow_target :\n', addCommentRes.data);
+    // let removeCommentRes = await removeCommentTarget(instaAccId, addCommentRes.data.commentTarget.commentId);
+    // console.log('result of remove_follow_target :\n', removeCommentRes.data);
+    // let getCommentRes = await getCommentTargets(instaAccId);
+    // console.log('result of get_follow_targets :\n', getCommentRes.data);
+    // let addCommentRes2 = await addCommentTarget(instaAccId, 'jlo');
+    // console.log('result of add_follow_target :\n', addCommentRes2.data);
 
-    // instaacc
-    let addAccRes = await addInstaAccount('username', 'password', 'acc1');
-    console.log('result of add_account :\n', addAccRes.data);
-    let removeAccRes = await removeInstaAccount('username');
-    console.log('result of remove_account :\n', removeAccRes.data);
-    let addAccRes2 = await addInstaAccount('username', 'password', 'acc1');
-    console.log('result of add_account ( second request ) :\n', addAccRes2.data);
-    let instaAccId = addAccRes2.data.instaAccount.instaAccountId;
-    let getAccsRes = await getInstaAccounts();
-    console.log('result of get_account :\n', getAccsRes.data);
+    let instaAccId = (await getInstaAccounts()).data.instaAccounts[0].instaAccountId;
 
-    // tag
-    let addTagRes = await addTag(instaAccId, 'food');
-    console.log('result of add_tag :\n', addTagRes.data);
-    let removeTagRes = await removeTag(instaAccId, 1);
-    console.log('result of remove_tag :\n', removeTagRes.data);
-    let getTagsRes = await getTags(instaAccId);
-    console.log('result of get_tags :\n', getTagsRes.data);
-    let searchTagsRes = await searchTags(instaAccId, 'fo'); // for example 'fo' as a part of 'food' for query
-    console.log('result of search_tags :\n', searchTagsRes.data);
+    // config
+    let editConfigRes = await editConfig(instaAccId, {
 
-    // block
-    let addBlockRes = await addBlockTarget(instaAccId, 'bike', 1); // blockTargetType : 1 for tags. 2 for users
-    console.log('result of add_block_target :\n', addBlockRes.data);
-    let addBlockRes2 = await addBlockTarget(instaAccId, 'username', 2); // blockTargetType : 1 for tags. 2 for users
-    console.log('result of add_block_target ( second request ) :\n', addBlockRes2.data);
-    let removeBlockRes = await removeBlockTarget(instaAccId, addBlockRes.data.blockTarget.blockId);
-    console.log('result of remove_block_target :\n', removeBlockRes.data);
-    let getBlocksRes = await getBlockTargets(instaAccId);
-    console.log('result of get_block_targets :\n', getBlocksRes.data);
+    });
 
-    // follow
-    let addFollowRes = await addFollowTarget(instaAccId, 'username');
-    console.log('result of add_follow_target :\n', addFollowRes.data);
-    let removeFollowRes = await removeFollowTarget(instaAccId, addFollowRes.data.followTarget.followId);
-    console.log('result of remove_follow_target :\n', removeFollowRes.data);
-    let getFollowRes = await getFollowTargets(instaAccId);
-    console.log('result of get_follow_targets :\n', getFollowRes.data);
-
-    // like
-    let addLikeRes = await addLikeTarget(instaAccId, 'username');
-    console.log('result of add_like_target :\n', addLikeRes.data);
-    let removeLikeRes = await removeLikeTarget(instaAccId, addLikeRes.data.likeTarget.likeId);
-    console.log('result of remove_like_target :\n', removeLikeRes.data);
-    let getLikeRes = await getLikeTargets(instaAccId);
-    console.log('result of get_like_targets :\n', getLikeRes.data);
-
-    // comment
-    let addCommentRes = await addCommentTarget(instaAccId, 'username');
-    console.log('result of add_follow_target :\n', addCommentRes.data);
-    let removeCommentRes = await removeCommentTarget(instaAccId, addCommentRes.data.commentTarget.commentId);
-    console.log('result of remove_follow_target :\n', removeCommentRes.data);
-    let getCommentRes = await getCommentTargets(instaAccId);
-    console.log('result of get_follow_targets :\n', getCommentRes.data);
+    console.log('result of edit config: \n', editConfigRes);
 }
 
 test().then(function () {

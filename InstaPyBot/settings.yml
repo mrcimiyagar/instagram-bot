@@ -1,6 +1,7 @@
 # Login Details
 username:             miranda_kasperson
 password:             9G5S4r68k41573k18643m5sTu1m384ry4
+headless:             True
 
 # Optional Stuff: 
 #   Here are the default values and can be omitted (or changed)
