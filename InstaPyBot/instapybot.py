@@ -7,9 +7,4 @@ if __name__ == '__main__':
 
     setproctitle('insta-ai-bot-' + sys.argv[1])
 
-    directory = '.'
-
     bot = InstaPyAgent(instaAccId=sys.argv[1], username=sys.argv[2], password=sys.argv[3])
-
-    # run bot
-    bot.run()

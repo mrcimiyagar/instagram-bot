@@ -19,28 +19,21 @@ router.post('/edit_config', async function (req, res) {
                 return;
             }
             let c = req.body.config;
-            console.log(c);
             let mw = require('../mongo-wrapper');
             while(mw.Config === undefined || mw.configSchema === undefined) {
                 await sleep(1000);
                 mw = require('../mongo-wrapper');
             }
-            if (!(c instanceof mw.Config)) {
-                res.send({status: 'error', errorCode: 'e0053', message: 'Invalid config packet.'});
-                return;
-            }
+            c = mw.Config.hydrate(c);
             let instaAccId = c.instaAccId;
             let config = await mw.Config.findOne({instaAccId: instaAccId});
             if (config === null || config === undefined) {
-                res.send({status: 'error', errorCode: 'e0054', message: 'Insta account not found.'});
-                return;
+                config = new mw.Config();
+                config.instaAccId = instaAccId;
+                await config.save();
             }
-            config = new mw.Config();
-            const result = await config.save();
-            console.log(JSON.stringify(result));
-            await mw.Config.updateOne({instaAccId: instaAccId}, {$set: c});
-            await mw.Config.save();
-            console.log(`config of insta account with acc id ${instaAccId} updated.`);
+            let updateRes = await mw.Config.updateOne({instaAccId: instaAccId}, {$set: c});
+            console.log(updateRes);
             ipb.runInstaAgent(instaAcc.instaAccountId, instaAcc.username, instaAcc.password);
             res.send({status: 'success', message: "Insta account config updated successfully."});
         });

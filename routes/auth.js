@@ -126,4 +126,14 @@ router.post('/login', function(req, res) {
     });
 });
 
+router.post('/get_me', async function (req, res) {
+    let session = await sw.Session.findOne({where: {token: req.body.token}});
+    if (session === null) {
+        res.send({status: 'error', errorCode: 'e0056', message: 'Token is invalid.'});
+        return;
+    }
+    let user = await sw.User.findOne({where: {userId: session.userId}});
+    res.send({status: 'success', user: user, message: 'user fetched successfully.'});
+});
+
 module.exports = router;

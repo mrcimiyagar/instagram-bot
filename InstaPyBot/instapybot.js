@@ -1,20 +1,32 @@
 'use strict';
 
+const {sleep} = require("../tools");
 const exec = require('child_process').exec;
 const kue = require('kue');
 const sw = require('../sequel-wrapper');
 const fs = require('fs');
+const findP = require('find-process');
 
 let runJobs = kue.createQueue();
+runJobs.setMaxListeners(1000);
 let stopJobs = kue.createQueue();
+stopJobs.setMaxListeners(1000);
+
+async function killInstaAgent(instaAccId) {
+    await execCommand(`pkill insta-ai-bot-` + instaAccId,
+        function(error, stdout, stderr){ callback(stdout); });
+}
 
 function createQueue(acc) {
     runJobs.process('account-run-agent-jobs-' + acc.instaAccountId, async function (job, done) {
 
-        const mw = require('../mongo-wrapper');
+        let mw = require('../mongo-wrapper');
+        while (mw.Config === undefined || mw.configSchema === undefined) {
+            await sleep(1000);
+            mw = require('../mongo-wrapper');
+        }
 
-        await execCommand('pkill "insta-ai-bot-' + job.data.instaAccId + '"',
-            function(error, stdout, stderr){ callback(stdout); });
+        await killInstaAgent(job.data.instaAccId);
 
         let config = {};
 
@@ -58,24 +70,30 @@ function createQueue(acc) {
         config.block = {};
         config.block.block_targets = blockTargets;
 
-        let c = mw.Config;
+        let c = await mw.Config.findOne({instaAccId: job.data.instaAccId});
 
-        const finalConfig = {...config, ...c};
+        while (c === null) {
+            await sleep(1000);
+            c = await mw.Config.findOne({instaAccId: job.data.instaAccId});
+        }
 
-        fs.writeFile(`./InstaPyBot/${job.data.instaAccId}.json`, JSON.stringify(finalConfig), (err) => {
+        const finalConfig = {...config, ...c._doc};
+
+        fs.writeFile(`./InstaPyBot/${job.data.instaAccId}.json`, JSON.stringify(finalConfig), async (err) => {
             if (err) {
                 console.error(err);
                 return;
             }
             console.log("Config has been written to disk.");
+            await execCommand('python3 instapybot.py ' + job.data.instaAccId + ' "' + job.data.username + '" "' + job.data.password + '"',
+                function (error, stdout, stderr) {
+                    callback(stdout);
+                });
+            done && done();
         });
-        await execCommand('python instapybot.py ' + job.data.instaAccId + ' "' + job.data.username + '" "' + job.data.password + '"',
-            function(error, stdout, stderr){ callback(stdout); });
-        done && done();
     });
     stopJobs.process('account-stop-agent-jobs-' + acc.instaAccountId, async function (job, done) {
-        await execCommand('pkill "insta-ai-bot-' + job.data.instaAccId + '"',
-            function(error, stdout, stderr){ callback(stdout); });
+        await killInstaAgent(job.data.instaAccId);
         done && done();
     });
 }
@@ -90,7 +108,7 @@ module.exports = {
     notifyInstaAccountCreated: function (acc) {
         createQueue(acc);
     },
-    runInstaAgent: function (instaAccId, username, password, followTargets, tagTargets) {
+    runInstaAgent: function (instaAccId, username, password) {
         let job = runJobs.create('account-run-agent-jobs-' + instaAccId, {
             instaAccId : instaAccId,
             username : username,
@@ -108,7 +126,7 @@ module.exports = {
 
 async function execCommand(command) {
     console.log('executing', command);
-    let child = exec(command, {cwd: '/home/keyhan/projects/js/InstaAiBot/InstaPyBot'});
+    let child = exec(command, {cwd: '/home/InstaAiBot/InstaPyBot'});
     child.stdout.on('data', function (data) {
         console.log('stdout: ' + data);
     });

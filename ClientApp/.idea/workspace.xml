@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e0110627-b8c2-43da-a905-65ee5ca36eca" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1UVVwI968BRgjxKQ8mlwatyDUBm" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="js.linters.configure.manually.selectedeslint" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.standard" value="" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/node_modules/prettier" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/assets/img" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.InstaAiBot">
+    <configuration name="InstaAiBot" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="start" />
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="npm.InstaAiBot" />
+      <item itemvalue="npm.build" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.build" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e0110627-b8c2-43da-a905-65ee5ca36eca" name="Default Changelist" comment="" />
+      <created>1575441986793</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1575441986793</updated>
+      <workItem from="1575441988244" duration="1077000" />
+      <workItem from="1575445130491" duration="37748000" />
+      <workItem from="1575618985116" duration="9164000" />
+      <workItem from="1575654805621" duration="3831000" />
+      <workItem from="1575974883828" duration="47000" />
+      <workItem from="1576214737315" duration="2597000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="395" y="127" width="800" height="675" key="#ESLint" timestamp="1575619369513">
+      <screen x="0" y="32" width="1600" height="868" />
+    </state>
+    <state x="395" y="127" width="800" height="675" key="#ESLint/0.32.1600.868@0.32.1600.868" timestamp="1575619369513" />
+    <state x="258" y="124" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1576214788863">
+      <screen x="0" y="32" width="1600" height="868" />
+    </state>
+    <state x="258" y="124" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.32.1600.868@0.32.1600.868" timestamp="1576214788863" />
+    <state x="583" y="174" width="424" height="582" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1575445274271">
+      <screen x="0" y="32" width="1600" height="868" />
+    </state>
+    <state x="583" y="174" width="424" height="582" key="#com.intellij.ide.macro.MacrosDialog/0.32.1600.868@0.32.1600.868" timestamp="1575445274271" />
+    <state x="533" y="215" width="524" height="500" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1575479033941">
+      <screen x="0" y="32" width="1600" height="868" />
+    </state>
+    <state x="533" y="215" width="524" height="500" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.32.1600.868@0.32.1600.868" timestamp="1575479033941" />
+    <state x="579" y="224" key="FileChooserDialogImpl" timestamp="1575974929296">
+      <screen x="0" y="32" width="1600" height="868" />
+    </state>
+    <state x="579" y="224" key="FileChooserDialogImpl/0.32.1600.868@0.32.1600.868" timestamp="1575974929296" />
+    <state width="1576" height="193" key="GridCell.Tab.0.bottom" timestamp="1576251769982">
+      <screen x="0" y="32" width="1600" height="868" />
+    </state>
+    <state width="1576" height="193" key="GridCell.Tab.0.bottom/0.32.1600.868@0.32.1600.868" timestamp="1576251769982" />
+    <state width="1576" height="193" key="GridCell.Tab.0.center" timestamp="1576251769982">
+      <screen x="0" y="32" width="1600" height="868" />
+    </state>
+    <state width="1576" height="193" key="GridCell.Tab.0.center/0.32.1600.868@0.32.1600.868" timestamp="1576251769982" />
+    <state width="1576" height="193" key="GridCell.Tab.0.left" timestamp="1576251769981">
+      <screen x="0" y="32" width="1600" height="868" />
+    </state>
+    <state width="1576" height="193" key="GridCell.Tab.0.left/0.32.1600.868@0.32.1600.868" timestamp="1576251769981" />
+    <state width="1576" height="193" key="GridCell.Tab.0.right" timestamp="1576251769982">
+      <screen x="0" y="32" width="1600" height="868" />
+    </state>
+    <state width="1576" height="193" key="GridCell.Tab.0.right/0.32.1600.868@0.32.1600.868" timestamp="1576251769982" />
+    <state x="274" y="101" key="SettingsEditor" timestamp="1576214764336">
+      <screen x="0" y="32" width="1600" height="868" />
+    </state>
+    <state x="274" y="101" key="SettingsEditor/0.32.1600.868@0.32.1600.868" timestamp="1576214764336" />
+  </component>
+</project>
