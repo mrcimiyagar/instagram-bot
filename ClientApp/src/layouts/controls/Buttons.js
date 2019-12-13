@@ -1,5 +1,6 @@
 import {withStyles} from "@material-ui/core";
 import Fab from "@material-ui/core/Fab";
+import {Link} from "react-router-dom";
 
 let LoginButton = withStyles(theme => ({
     root: {
@@ -11,4 +12,4 @@ let LoginButton = withStyles(theme => ({
     },
 }))(Fab);
 
-export default LoginButton;
+export {LoginButton};

@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import LoginButton from "./controls/Buttons";
 import Container from "@material-ui/core/Container";
 import {Box} from "@material-ui/core";
 import Card from "@material-ui/core/Card";
@@ -13,7 +12,6 @@ import {blue, lightBlue, green, red, yellow, purple, grey} from "@material-ui/co
 import VpnKeyIcon from '@material-ui/icons/VpnKey';
 import Checkbox from "@material-ui/core/Checkbox";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Link from "@material-ui/core/Link";
 import {AnimatedRotation, AnimatedPosition} from 'react-declare-animate';
 import PhoneIcon from '@material-ui/icons/Phone';
 import TextFormatIcon from '@material-ui/icons/TextFormat';
@@ -29,6 +27,8 @@ import posed from 'react-pose';
 import {Button, CardBody, CardFooter, CardHeader, Col, Form, FormGroup, Row} from "reactstrap";
 import {getMode} from "../routes";
 import FilePicker from "../components/FilePicker";
+import Link from "react-router-dom/Link";
+import {LoginButton} from "./controls/Buttons";
 
 let classes = {};
 
@@ -174,21 +174,33 @@ class AuthPage extends Component {
                                                     style={{
                                                         border: '1px #1D8CFF solid',
                                                         borderRadius: 8,
-                                                        padding: 8,
                                                         marginTop: 32
-                                                    }}
-                                                >
-                                                    Username
+                                                    }}>
+                                                    <input placeholder={'Username'} type={'text'} style={{
+                                                        background: 'transparent',
+                                                        width: '100%',
+                                                        border: 'none',
+                                                        padding: 12,
+                                                        outline: 'none',
+                                                        color: '#fff',
+                                                        textAlign: 'center'
+                                                    }}/>
                                                 </div>
                                                 <div
                                                     style={{
                                                         border: '1px #1D8CFF solid',
                                                         borderRadius: 8,
-                                                        padding: 8,
                                                         marginTop: 32
-                                                    }}
-                                                >
-                                                    Password
+                                                    }}>
+                                                    <input placeholder={'password'} type={'password'} style={{
+                                                        background: 'transparent',
+                                                        width: '100%',
+                                                        border: 'none',
+                                                        padding: 12,
+                                                        outline: 'none',
+                                                        color: '#fff',
+                                                        textAlign: 'center'
+                                                    }}/>
                                                 </div>
                                                 <FormControlLabel
                                                     style={{
@@ -211,17 +223,26 @@ class AuthPage extends Component {
                     </div>
                     <Center>
                         <LoginButton
-                            variant="contained"
-                            color="primary"
-                            onClick={() => {
-
-                            }}
+                            onClick={
+                                (e) => {
+                                    this.setState({loading: 0});
+                                    setTimeout(() => {
+                                        this.props.history.push(`/rtl/dashboard`);
+                                    }, 750);
+                                }
+                            }
                             style={{
+                                fontWeight: 'bold',
+                                textAlign: "center",
+                                verticalAlign: "middle",
+                                justifyContent: 'center',
+                                borderRadius: 24,
+                                lineHeight: 3.5,
                                 outline: 'none',
                                 position: 'relative',
-                                top: '-24px',
-                                width: '100px',
-                                height: '48px',
+                                top: -24,
+                                width: 100,
+                                height: 48,
                                 zIndex: '3',
                             }}>
                             {this.state.signupForFormItems ? 'Sign Up' : 'Sign In'}
