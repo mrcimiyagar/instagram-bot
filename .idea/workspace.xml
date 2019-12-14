@@ -2,205 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2d00b8d6-f86e-4b64-95d3-8c2d87f26a74" name="Default" comment="some how finished.">
-      <change afterPath="$PROJECT_DIR$/ClientApp/build/asset-manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ClientApp/build/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ClientApp/build/precache-manifest.530728d68acd5ece2f64f15b864e2dd1.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ClientApp/build/service-worker.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ClientApp/build/static/css/1.7ce92973.chunk.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ClientApp/build/static/css/1.7ce92973.chunk.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ClientApp/build/static/css/main.516c7d5f.chunk.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ClientApp/build/static/css/main.516c7d5f.chunk.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ClientApp/build/static/js/1.b0a52d7d.chunk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ClientApp/build/static/js/1.b0a52d7d.chunk.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ClientApp/build/static/js/main.5a95297c.chunk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ClientApp/build/static/js/main.5a95297c.chunk.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ClientApp/build/static/js/runtime~main.e36630e6.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ClientApp/build/static/js/runtime~main.e36630e6.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ClientApp/build/static/media/insta-icon.a8014de8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/fonts/nucleo.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/fonts/nucleo.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/fonts/nucleo.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/fonts/nucleo.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/img/anime3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/img/insta-icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/keyhan.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/keyhan.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/Documentation/documentation.html" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/Documentation/documentation.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/css/black-dashboard-react.css" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/css/black-dashboard-react.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/css/nucleo-icons.css" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/css/nucleo-icons.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/css/weather.css" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/css/weather.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/demo/demo.css" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/demo/demo.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/fonts/nucleo.eot" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/build/static/media/nucleo.03ef1918.eot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/fonts/nucleo.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/build/static/media/nucleo.b17a118e.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/fonts/nucleo.woff" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/build/static/media/nucleo.f0b489a5.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/fonts/nucleo.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/build/static/media/nucleo.5987dd12.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/img/anime3.png" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/build/static/media/anime3.bd6820f1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/img/anime6.png" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/img/anime6.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/img/apple-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/img/apple-icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/img/bg5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/img/bg5.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/img/cloudy.png" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/img/cloudy.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/img/default-avatar.png" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/img/default-avatar.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/img/emilyz.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/img/emilyz.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/img/favicon.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/img/favicon.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/img/header.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/img/header.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/img/img_3115.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/img/img_3115.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/img/insta-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/build/favicon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/img/james.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/img/james.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/img/mike.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/img/mike.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/img/part_cloudy.png" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/img/part_cloudy.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/img/rain.png" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/img/rain.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/img/react-logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/img/react-logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/img/stormy.png" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/img/stormy.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/img/sun.png" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/img/sun.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/img/weather.png" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/img/weather.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/img/windy.png" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/img/windy.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/_alert.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/_alert.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/_badge.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/_badge.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/_breadcrumb.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/_breadcrumb.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/_button-group.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/_button-group.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/_buttons.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/_buttons.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/_card.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/_card.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/_carousel.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/_carousel.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/_close.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/_close.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/_code.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/_code.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/_custom-forms.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/_custom-forms.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/_dropdown.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/_dropdown.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/_forms.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/_forms.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/_functions.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/_functions.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/_grid.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/_grid.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/_images.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/_images.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/_input-group.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/_input-group.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/_jumbotron.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/_jumbotron.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/_list-group.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/_list-group.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/_media.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/_media.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/_mixins.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/_mixins.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/_modal.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/_modal.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/_nav.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/_nav.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/_navbar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/_navbar.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/_pagination.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/_pagination.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/_popover.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/_popover.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/_print.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/_print.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/_progress.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/_progress.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/_reboot.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/_reboot.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/_root.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/_root.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/_tables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/_tables.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/_tooltip.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/_tooltip.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/_transitions.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/_transitions.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/_type.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/_type.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/_utilities.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/_utilities.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/_variables.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/mixins/_alert.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/mixins/_alert.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/mixins/_background-variant.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/mixins/_background-variant.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/mixins/_badge.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/mixins/_badge.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/mixins/_border-radius.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/mixins/_border-radius.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/mixins/_box-shadow.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/mixins/_box-shadow.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/mixins/_breakpoints.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/mixins/_breakpoints.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/mixins/_buttons.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/mixins/_buttons.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/mixins/_caret.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/mixins/_caret.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/mixins/_clearfix.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/mixins/_clearfix.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/mixins/_float.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/mixins/_float.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/mixins/_forms.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/mixins/_forms.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/mixins/_gradients.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/mixins/_gradients.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/mixins/_grid-framework.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/mixins/_grid-framework.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/mixins/_grid.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/mixins/_grid.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/mixins/_hover.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/mixins/_hover.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/mixins/_image.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/mixins/_image.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/mixins/_list-group.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/mixins/_list-group.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/mixins/_lists.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/mixins/_lists.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/mixins/_nav-divider.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/mixins/_nav-divider.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/mixins/_pagination.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/mixins/_pagination.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/mixins/_reset-text.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/mixins/_reset-text.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/mixins/_resize.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/mixins/_resize.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/mixins/_screen-reader.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/mixins/_screen-reader.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/mixins/_size.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/mixins/_size.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/mixins/_table-row.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/mixins/_table-row.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/mixins/_text-emphasis.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/mixins/_text-emphasis.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/mixins/_text-hide.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/mixins/_text-hide.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/mixins/_text-truncate.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/mixins/_text-truncate.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/mixins/_transition.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/mixins/_transition.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/mixins/_visibility.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/mixins/_visibility.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/utilities/_align.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/utilities/_align.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/utilities/_background.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/utilities/_background.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/utilities/_borders.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/utilities/_borders.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/utilities/_clearfix.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/utilities/_clearfix.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/utilities/_display.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/utilities/_display.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/utilities/_embed.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/utilities/_embed.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/utilities/_flex.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/utilities/_flex.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/utilities/_float.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/utilities/_float.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/utilities/_position.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/utilities/_position.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/utilities/_screenreaders.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/utilities/_screenreaders.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/utilities/_shadows.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/utilities/_shadows.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/utilities/_sizing.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/utilities/_sizing.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/utilities/_spacing.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/utilities/_spacing.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/utilities/_text.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/utilities/_text.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/bootstrap/utilities/_visibility.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/bootstrap/utilities/_visibility.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/custom/_alerts.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/custom/_alerts.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/custom/_badges.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/custom/_badges.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/custom/_buttons.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/custom/_buttons.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/custom/_card.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/custom/_card.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/custom/_checkboxes-radio.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/custom/_checkboxes-radio.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/custom/_dropdown.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/custom/_dropdown.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/custom/_fixed-plugin.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/custom/_fixed-plugin.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/custom/_footer.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/custom/_footer.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/custom/_forms.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/custom/_forms.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/custom/_functions.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/custom/_functions.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/custom/_images.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/custom/_images.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/custom/_input-group.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/custom/_input-group.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/custom/_misc.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/custom/_misc.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/custom/_mixins.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/custom/_mixins.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/custom/_modal.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/custom/_modal.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/custom/_navbar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/custom/_navbar.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/custom/_rtl.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/custom/_rtl.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/custom/_sidebar-and-main-panel.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/custom/_sidebar-and-main-panel.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/custom/_tables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/custom/_tables.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/custom/_type.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/custom/_type.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/custom/_utilities.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/custom/_utilities.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/custom/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/custom/_variables.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/custom/_white-content.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/custom/_white-content.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/custom/cards/_card-chart.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/custom/cards/_card-chart.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/custom/cards/_card-map.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/custom/cards/_card-map.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/custom/cards/_card-plain.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/custom/cards/_card-plain.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/custom/cards/_card-task.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/custom/cards/_card-task.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/custom/cards/_card-user.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/custom/cards/_card-user.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/custom/mixins/_alert.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/custom/mixins/_alert.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/custom/mixins/_background-variant.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/custom/mixins/_background-variant.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/custom/mixins/_badges.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/custom/mixins/_badges.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/custom/mixins/_buttons.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/custom/mixins/_buttons.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/custom/mixins/_dropdown.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/custom/mixins/_dropdown.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/custom/mixins/_forms.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/custom/mixins/_forms.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/custom/mixins/_icon.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/custom/mixins/_icon.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/custom/mixins/_inputs.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/custom/mixins/_inputs.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/custom/mixins/_modals.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/custom/mixins/_modals.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/custom/mixins/_page-header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/custom/mixins/_page-header.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/custom/mixins/_popovers.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/custom/mixins/_popovers.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/custom/mixins/_vendor-prefixes.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/custom/mixins/_vendor-prefixes.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/custom/mixins/_wizard.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/custom/mixins/_wizard.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/custom/mixins/opacity.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/custom/mixins/opacity.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/custom/utilities/_backgrounds.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/custom/utilities/_backgrounds.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/custom/utilities/_floating.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/custom/utilities/_floating.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/custom/utilities/_helper.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/custom/utilities/_helper.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/custom/utilities/_position.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/custom/utilities/_position.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/custom/utilities/_shadows.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/custom/utilities/_shadows.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/custom/utilities/_sizing.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/custom/utilities/_sizing.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/custom/utilities/_spacing.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/custom/utilities/_spacing.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/custom/utilities/_text.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/custom/utilities/_text.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/custom/utilities/_transform.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/custom/utilities/_transform.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/custom/vendor/_plugin-perfect-scrollbar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/custom/vendor/_plugin-perfect-scrollbar.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/assets/scss/black-dashboard-react/custom/vendor/_plugin-react-notification-alert.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/assets/app/scss/black-dashboard-react/custom/vendor/_plugin-react-notification-alert.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/components/Navbars/AdminNavbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/components/Navbars/AdminNavbar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/components/Navbars/RTLNavbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/components/Navbars/RTLNavbar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/components/Weather.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/components/Weather.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/layouts/Admin/Admin.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/layouts/Admin/Admin.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/layouts/AuthPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/layouts/AuthPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/layouts/RTL/RTL.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/layouts/RTL/RTL.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/routes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/views/Rtl.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/views/Rtl.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InstaPyBot/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/InstaPyBot/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -315,7 +117,7 @@
       <workItem from="1576143121778" duration="27837000" />
       <workItem from="1576252411574" duration="2098000" />
       <workItem from="1576255401663" duration="14402000" />
-      <workItem from="1576320243143" duration="7450000" />
+      <workItem from="1576320243143" duration="7726000" />
     </task>
     <task id="LOCAL-00001" summary="finished 3 routers.">
       <created>1563732244525</created>
@@ -448,22 +250,22 @@
       <screen x="0" y="32" width="1600" height="868" />
     </state>
     <state x="579" y="224" key="FileChooserDialogImpl/0.32.1600.868@0.32.1600.868" timestamp="1576217982865" />
-    <state width="1576" height="194" key="GridCell.Tab.0.bottom" timestamp="1576327613865">
+    <state width="1576" height="194" key="GridCell.Tab.0.bottom" timestamp="1576328093772">
       <screen x="0" y="32" width="1600" height="868" />
     </state>
-    <state width="1576" height="194" key="GridCell.Tab.0.bottom/0.32.1600.868@0.32.1600.868" timestamp="1576327613865" />
-    <state width="1576" height="194" key="GridCell.Tab.0.center" timestamp="1576327613864">
+    <state width="1576" height="194" key="GridCell.Tab.0.bottom/0.32.1600.868@0.32.1600.868" timestamp="1576328093772" />
+    <state width="1576" height="194" key="GridCell.Tab.0.center" timestamp="1576328093770">
       <screen x="0" y="32" width="1600" height="868" />
     </state>
-    <state width="1576" height="194" key="GridCell.Tab.0.center/0.32.1600.868@0.32.1600.868" timestamp="1576327613864" />
-    <state width="1576" height="194" key="GridCell.Tab.0.left" timestamp="1576327613863">
+    <state width="1576" height="194" key="GridCell.Tab.0.center/0.32.1600.868@0.32.1600.868" timestamp="1576328093770" />
+    <state width="1576" height="194" key="GridCell.Tab.0.left" timestamp="1576328093768">
       <screen x="0" y="32" width="1600" height="868" />
     </state>
-    <state width="1576" height="194" key="GridCell.Tab.0.left/0.32.1600.868@0.32.1600.868" timestamp="1576327613863" />
-    <state width="1576" height="194" key="GridCell.Tab.0.right" timestamp="1576327613864">
+    <state width="1576" height="194" key="GridCell.Tab.0.left/0.32.1600.868@0.32.1600.868" timestamp="1576328093768" />
+    <state width="1576" height="194" key="GridCell.Tab.0.right" timestamp="1576328093771">
       <screen x="0" y="32" width="1600" height="868" />
     </state>
-    <state width="1576" height="194" key="GridCell.Tab.0.right/0.32.1600.868@0.32.1600.868" timestamp="1576327613864" />
+    <state width="1576" height="194" key="GridCell.Tab.0.right/0.32.1600.868@0.32.1600.868" timestamp="1576328093771" />
     <state width="1576" height="243" key="GridCell.Tab.1.bottom" timestamp="1576252396931">
       <screen x="0" y="32" width="1600" height="868" />
     </state>
