@@ -55,12 +55,12 @@ import {Redirect} from "react-router-dom";
 class Rtl extends React.Component {
   constructor(props) {
     super(props);
-    if (getMode() === "/admin") changeMode("/rtl");
-    else if (getMode() === "/rtl") changeMode("/admin");
+    if (getMode() === "/admin") changeMode("/app/rtl");
+    else if (getMode() === "/rtl") changeMode("/app/admin");
   }
   render() {
     return (
-        <Redirect to={getMode() + "/dashboard"}/>
+        <Redirect to={'/app' + getMode() + "/dashboard"}/>
     );
   }
 }

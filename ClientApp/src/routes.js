@@ -25,9 +25,9 @@ import Typography from "views/Typography.jsx";
 import UserProfile from "views/UserProfile.jsx";
 import axios from "axios";
 
-let mode = "/rtl";
+let mode = "/app/admin";
 export function getMode() {
-  return mode;
+  return mode.substr('/app'.length);
 }
 export function changeMode(m) {
   mode = m;

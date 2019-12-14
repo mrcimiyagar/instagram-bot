@@ -26,7 +26,7 @@ import Footer from "components/Footer/Footer.jsx";
 import Sidebar from "components/Sidebar/Sidebar.jsx";
 import FixedPlugin from "components/FixedPlugin/FixedPlugin.jsx";
 import {getMe, getRoutes} from "../../routes";
-import instaIcon from 'assets/img/insta-icon.png';
+import instaIcon from 'assets/app/img/insta-icon.png';
 
 var ps;
 
@@ -38,6 +38,7 @@ class Admin extends React.Component {
       sidebarOpened:
         document.documentElement.className.indexOf("nav-open") !== -1
     };
+    document.body.style.overflow = 'auto';
   }
   componentDidMount() {
     if (navigator.platform.indexOf("Win") > -1) {
@@ -95,7 +96,7 @@ class Admin extends React.Component {
   };
   getRoutes = routes => {
     return routes.map((prop, key) => {
-      if (prop.layout === "/rtl") {
+      if (prop.layout === "/app/rtl") {
         return (
           <Route
             path={prop.layout + prop.path}

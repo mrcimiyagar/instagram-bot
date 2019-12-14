@@ -38,6 +38,7 @@ class Admin extends React.Component {
       sidebarOpened:
         document.documentElement.className.indexOf("nav-open") !== -1
     };
+    document.body.style.overflow = 'auto';
   }
   componentDidMount() {
     if (navigator.platform.indexOf("Win") > -1) {
@@ -77,7 +78,7 @@ class Admin extends React.Component {
   };
   getRoutes = routes => {
     return routes.map((prop, key) => {
-      if (prop.layout === "/admin") {
+      if (prop.layout === "/app/admin") {
         return (
           <Route
             path={prop.layout + prop.path}

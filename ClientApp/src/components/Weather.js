@@ -2,10 +2,10 @@ import * as React from "react";
 import $ from 'jquery';
 import {getMode} from "../routes";
 import { Transform, Loop } from 'react-animation-components'
-import rainIcon from '../assets/img/rain.png';
-import sunnyIcon from '../assets/img/sun.png';
-import windyIcon from '../assets/img/windy.png';
-import stormIcon from '../assets/img/stormy.png';
+import rainIcon from '../assets/app/img/rain.png';
+import sunnyIcon from '../assets/app/img/sun.png';
+import windyIcon from '../assets/app/img/windy.png';
+import stormIcon from '../assets/app/img/stormy.png';
 
 import {Card, CardBody, CardHeader, CardTitle, Col, Row} from "reactstrap";
 import {Line} from "react-chartjs-2";

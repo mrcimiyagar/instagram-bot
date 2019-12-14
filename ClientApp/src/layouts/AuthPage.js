@@ -121,7 +121,7 @@ class AuthPage extends Component {
     }
 
     measureAuthCardHeight() {
-        return this.state.width < 700 ?
+        return this.state.width < 450 ?
             this.state.signupForFormItems ?
                 800:
                 500:
@@ -131,7 +131,7 @@ class AuthPage extends Component {
     }
 
     measureAuthCardWidth() {
-        return this.state.width < 700 ?
+        return this.state.width < 450 ?
             '80%' :
             300;
     }
@@ -154,7 +154,7 @@ class AuthPage extends Component {
                     left: '50%',
                     transform: 'translate(-50%, -50%)',
                 }}
-                pose={this.state.loading === 1 ? this.state.width < 700 ? 'mobileVisible' : 'pcVisible' : 'hidden'}>
+                pose={this.state.loading === 1 ? this.state.width < 450 ? 'mobileVisible' : 'pcVisible' : 'hidden'}>
                     <div style={{
                         width: '100%',
                         height: 'calc(100% - ' + (window.devicePixelRatio * 72) + 'px)',
@@ -227,7 +227,7 @@ class AuthPage extends Component {
                                 (e) => {
                                     this.setState({loading: 0});
                                     setTimeout(() => {
-                                        this.props.history.push(`/rtl/dashboard`);
+                                        this.props.history.push(`admin/dashboard`);
                                     }, 750);
                                 }
                             }

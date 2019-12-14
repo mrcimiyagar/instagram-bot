@@ -23,9 +23,9 @@ import { Router, Route, Switch, Redirect } from "react-router-dom";
 import AdminLayout from "layouts/Admin/Admin.jsx";
 import RTLLayout from "layouts/RTL/RTL.jsx";
 
-import "assets/scss/black-dashboard-react.scss";
-import "assets/demo/demo.css";
-import "assets/css/nucleo-icons.css";
+import "assets/app/scss/black-dashboard-react.scss";
+import "assets/app/demo/demo.css";
+import "assets/app/css/nucleo-icons.css";
 import {func} from "prop-types";
 import axios from 'axios';
 import {fetchMe, getMe} from "./routes";
@@ -40,9 +40,9 @@ fetchMe().then(() => {
 ReactDOM.render(
   <Router history={hist}>
     <Switch>
-      <Route path="/admin" render={props => <AdminLayout {...props} />} />
-      <Route path="/rtl" render={props => <RTLLayout {...props} />} />
-      <Route path="/" render={props => <AuthPage {...props} />} />
+      <Route path="/app/admin" render={props => <AdminLayout {...props} />} />
+      <Route path="/app/rtl" render={props => <RTLLayout {...props} />} />
+      <Route path="/app/signin" render={props => <AuthPage {...props} />} />
     </Switch>
   </Router>,
   document.getElementById("root")

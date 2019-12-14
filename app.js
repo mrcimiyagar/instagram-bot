@@ -48,8 +48,17 @@ app.use('/api/comment', comment);
 app.use('/api/config', config.router);
 app.use('/api/index', index);
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
+app.get('/app/*', (req, res) => {
+  let requestedResource = req.path.substr('/app/'.length);
+  if (requestedResource === 'signin' ||
+      requestedResource === 'signup' ||
+      requestedResource === 'home') {
+    requestedResource = 'index.html';
+  }
+  else if (requestedResource.startsWith('admin') || requestedResource.startsWith('rtl') || requestedResource.startsWith('static')) {
+    requestedResource = requestedResource.substr(requestedResource.lastIndexOf('static'));
+  }
+  res.sendFile(path.join(__dirname, 'ClientApp/build', requestedResource));
 });
 
 // catch 404 and forward to error handler
