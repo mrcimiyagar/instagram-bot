@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row p-0 mt-3 justify-content-center">
+
+    <div class="col-md-4">
+      <input type="text" class="form-control" aria-label="Large" placeholder="Enter a Username"
+        aria-describedby="inputGroup-sizing-sm" #inputText>
+    </div>
+    <div class="col-md-2">
+      <button class="btn mdb-color darken-2 text-white" (click)="addTarget(inputText.value)">Add</button>
+    </div>
+
+  </div>
+  <hr>
+  <div class="row pl-4 pr-4" *ngIf="!loading">
+    <div class="col mb-4" *ngFor="let target of targets">
+      <div class="card card-cascade">
+
+        <!-- Card image -->
+        <!-- <div class="view view-cascade overlay">
+          <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/men.jpg" alt="Card image cap">
+          <a>
+            <div class="mask rgba-white-slight"></div>
+          </a>
+        </div> -->
+
+        <!-- Card content -->
+        <div class="card-body card-body-cascade text-center">
+
+          <!-- Title -->
+          <p class="card-title"><strong>{{target.username}}</strong></p>
+
+          <a type="button" (click)="removeTarget(target.commentId)"
+            class="btn btn-floating btn-small red rounded-circle"><i class="fa fa-times"></i></a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
