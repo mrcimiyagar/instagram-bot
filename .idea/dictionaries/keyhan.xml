@@ -1,27 +1,8 @@
 <component name="ProjectDictionaryState">
-  <dictionary name="keyhan">
+  <dictionary name="Keyhan">
     <words>
-      <w>accs</w>
-      <w>axios</w>
-      <w>clsx</w>
-      <w>commenters</w>
-      <w>dimpedia</w>
-      <w>dont</w>
-      <w>getproctitle</w>
-      <w>hashtags</w>
-      <w>insta</w>
-      <w>instaacc</w>
-      <w>instapy</w>
-      <w>instapybot</w>
-      <w>keyhan</w>
-      <w>likers</w>
-      <w>miryamcreed</w>
-      <w>pkill</w>
-      <w>setproctitle</w>
-      <w>signin</w>
-      <w>signup</w>
-      <w>tasklist</w>
-      <w>unfollow</w>
+      <w>nodemailer</w>
+      <w>sequelize</w>
     </words>
   </dictionary>
 </component>

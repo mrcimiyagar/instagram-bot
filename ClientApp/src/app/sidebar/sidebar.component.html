@@ -1,0 +1,38 @@
+<nav id="sidebar">
+  <!--  <div class="custom-menu">
+        <button type="button" id="sidebarCollapse" class="btn btn-primary">
+</button>
+</div> -->
+  <div class="img bg-wrap text-center py-4" style="background-image: url(assets/bg_1.jpg);">
+    <div class="user-logo">
+      <div class="img" style="background-image: url(assets/logo.jpg);"></div>
+      <h3>{{uname}}</h3>
+    </div>
+  </div>
+  <ul class="list-unstyled components mb-5">
+    <li routerLinkActive="active">
+      <a routerLink="/home"><span class="fa fa-home mr-3"></span> Home</a>
+    </li>
+    <li routerLinkActive="active">
+      <a routerLink="/follows"><span class="fa fa-users mr-3 notif">
+          <!-- <small class="d-flex align-items-center justify-content-center">5</small> -->
+        </span> Follows</a>
+    </li>
+    <li routerLinkActive="active">
+      <a routerLink="/tags"><span class="fa fa-tag mr-3"></span> Tags</a>
+    </li>
+    <li routerLinkActive="active">
+      <a routerLink="/comments"><span class="fa fa-comment mr-3"></span> Comments</a>
+    </li>
+    <li routerLinkActive="active">
+      <a routerLink="/likes"><span class="fa fa-heart mr-3"></span> Likes</a>
+    </li>
+    <li routerLinkActive="active">
+      <a routerLink="/setting"><span class="fa fa-cog mr-3"></span> Settings</a>
+    </li>
+    <li>
+      <a (click)="signout()"><span class="fa fa-sign-out-alt mr-3"></span> Sign Out</a>
+    </li>
+  </ul>
+
+</nav>
