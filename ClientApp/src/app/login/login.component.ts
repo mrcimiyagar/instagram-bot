@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
     );
 
     // this.http
-    //   .post<res>("http://95.216.62.129:3100/api/auth/login", data)
+    //   .post<res>("http://45.156.184.182:3100/api/auth/login", data)
     //   .subscribe(responseData => {
     //     console.log(responseData);
     //     if (responseData.status === "success") {

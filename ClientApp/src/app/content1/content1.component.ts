@@ -59,7 +59,7 @@ export class Content1Component implements OnInit {
     };
     this.http
       .post<accRes>(
-        "http://95.216.62.129:3100/api/insta_acc/get_accounts",
+        "http://45.156.184.182:3100/api/insta_acc/get_accounts",
         data
       )
       .subscribe(responseData => {
@@ -77,7 +77,7 @@ export class Content1Component implements OnInit {
     };
     console.log(data);
     this.http
-      .post("http://95.216.62.129:3100/api/follow/add_follow_target", data)
+      .post("http://45.156.184.182:3100/api/follow/add_follow_target", data)
       .subscribe(responseData => {
         console.log(responseData);
         this.getTargets();
@@ -92,7 +92,7 @@ export class Content1Component implements OnInit {
     console.log(data);
     this.http
       .post<targetArray>(
-        "http://95.216.62.129:3100/api/follow/get_follow_targets",
+        "http://45.156.184.182:3100/api/follow/get_follow_targets",
         data
       )
       .subscribe(responseData => {
@@ -111,7 +111,7 @@ export class Content1Component implements OnInit {
     };
     console.log(data);
     this.http
-      .post("http://95.216.62.129:3100/api/follow/remove_follow_target", data)
+      .post("http://45.156.184.182:3100/api/follow/remove_follow_target", data)
       .subscribe(responseData => {
         console.log(responseData);
         this.getTargets();

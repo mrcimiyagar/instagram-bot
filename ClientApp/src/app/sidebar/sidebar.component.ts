@@ -47,7 +47,7 @@ export class SidebarComponent implements OnInit {
     };
     this.http
       .post<accRes>(
-        "http://95.216.62.129:3100/api/insta_acc/get_accounts",
+        "http://45.156.184.182:3100/api/insta_acc/get_accounts",
         data
       )
       .subscribe(responseData => {

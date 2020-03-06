@@ -58,7 +58,7 @@ export class Content4Component implements OnInit {
     };
     this.http
       .post<accRes>(
-        "http://95.216.62.129:3100/api/insta_acc/get_accounts",
+        "http://45.156.184.182:3100/api/insta_acc/get_accounts",
         data
       )
       .subscribe(responseData => {
@@ -76,7 +76,7 @@ export class Content4Component implements OnInit {
     };
     console.log(data);
     this.http
-      .post("http://95.216.62.129:3100/api/like/add_like_target", data)
+      .post("http://45.156.184.182:3100/api/like/add_like_target", data)
       .subscribe(responseData => {
         console.log(responseData);
         this.getTargets();
@@ -91,7 +91,7 @@ export class Content4Component implements OnInit {
     console.log(data);
     this.http
       .post<targetArray>(
-        "http://95.216.62.129:3100/api/like/get_like_targets",
+        "http://45.156.184.182:3100/api/like/get_like_targets",
         data
       )
       .subscribe(responseData => {
@@ -109,7 +109,7 @@ export class Content4Component implements OnInit {
     };
     console.log(data);
     this.http
-      .post("http://95.216.62.129:3100/api/like/remove_like_target", data)
+      .post("http://45.156.184.182:3100/api/like/remove_like_target", data)
       .subscribe(responseData => {
         console.log(responseData);
         this.getTargets();
