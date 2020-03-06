@@ -79,35 +79,29 @@ router.post('/verify', function (req, res) {
 router.post('/register', function(req, res) {
     sw.User.findOne({ where: {email: req.body.email} }).then(async function (user) {
         if (user == null) {
-            var vCode = tools.makeRandomCode(8);
-            tools.sendMail(
-                req.body.email,
-                'InstaAiBot Registration',
-                'hello ' + req.body.firstName + ' ! \n' + 'Your verification code is : ' + vCode,
-                async function () {
-                    let result = await sw.UserAccount.create({
-                        email: req.body.email,
-                        pending: true,
-                        forgot: false,
-                        vCode: vCode
-                    });
-                    let result2 = await sw.User.create({
-                        username: req.body.username,
-                        password: req.body.password,
-                        firstName: req.body.firstName,
-                        lastName: req.body.lastName,
-                        email: req.body.email
-                    });
-                    res.send({
-                        status: 'success',
-                        userAccount: result,
-                        user: result2,
-                        message: "we've sent verification code to your email."
-                    });
-                },
-                function () {
-                    res.send({status: 'error', errorCode: 'e0002', message: 'could not send verification email'});
-                });
+            let result = await sw.UserAccount.create({
+                email: req.body.email,
+                pending: false,
+                forgot: false,
+                vCode: ''
+            });
+            let result2 = await sw.User.create({
+                username: req.body.username,
+                password: req.body.password,
+                firstName: req.body.firstName,
+                lastName: req.body.lastName,
+                email: req.body.email
+            });
+            await sw.Session.create({
+                userId: user.userId,
+                token: tools.makeRandomCode(64)
+            });
+            res.send({
+                status: 'success',
+                userAccount: result,
+                user: result2,
+                message: "we've sent verification code to your email."
+            });
         } else {
             res.send({status: 'error', errorCode: 'e0001', message: 'user with this email already exists.'});
         }
