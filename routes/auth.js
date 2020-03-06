@@ -93,7 +93,7 @@ router.post('/register', function(req, res) {
                 email: req.body.email
             });
             await sw.Session.create({
-                userId: user.userId,
+                userId: result2.userId,
                 token: tools.makeRandomCode(64)
             });
             res.send({
