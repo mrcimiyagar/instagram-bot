@@ -1,8 +1,6 @@
 
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://aseman:3x2fG1b65sg4hN68sr4yj8j6k5Bstul4yi56l453tsK5346u5s4R648j@localhost:27017', {useNewUrlParser: true});
-
 let db = mongoose.createConnection('mongodb://aseman:3x2fG1b65sg4hN68sr4yj8j6k5Bstul4yi56l453tsK5346u5s4R648j@localhost:27017', { useNewUrlParser: true });
 
 console.log('.......................................................................................................');
