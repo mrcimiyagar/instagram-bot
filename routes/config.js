@@ -20,12 +20,8 @@ router.post('/edit_config', async function (req, res) {
             }
             let c = req.body.config;
             let mw = require('../mongo-wrapper');
-            while(mw.Config === undefined || mw.configSchema === undefined) {
-                await sleep(1000);
-                mw = require('../mongo-wrapper');
-            }
             c = mw.Config.hydrate(c);
-            let instaAccId = c.instaAccId;
+            let instaAccId = req.body.instaAcccountId;
             let config = await mw.Config.findOne({instaAccId: instaAccId});
             if (config === null || config === undefined) {
                 config = new mw.Config();
