@@ -53,7 +53,7 @@ export class AuthService {
       password: password
     };
     return this.http
-      .post<res>("http://95.216.62.129:3100/api/auth/login", data)
+      .post<res>("http://45.156.184.182:3100/api/auth/login", data)
       .pipe(
         catchError(this.handleError),
         tap(resData => {
