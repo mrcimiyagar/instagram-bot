@@ -113,7 +113,7 @@ module.exports = {
 
 async function execCommand(command) {
     console.log('executing', command);
-    let child = exec(command, {cwd: '/home/InstaAiBot/InstaPyBot'});
+    let child = exec(command, {cwd: '/home/insta-ai-bot/InstaPyBot'});
     child.stdout.on('data', function (data) {
         console.log('stdout: ' + data);
     });
