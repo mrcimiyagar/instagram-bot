@@ -34,6 +34,7 @@ router.post('/edit_config', async function (req, res) {
             }
             let updateRes = await mw.Config.updateOne({instaAccId: instaAccId}, {$set: c});
             console.log(updateRes);
+            ipb.stopInstaAgent(instaAcc.instaAccountId);
             ipb.runInstaAgent(instaAcc.instaAccountId, instaAcc.username, instaAcc.password);
             res.send({status: 'success', message: "Insta account config updated successfully."});
         });
