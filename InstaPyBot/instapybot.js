@@ -62,10 +62,12 @@ function createQueue(acc) {
         });
         config.block = {};
         config.block.block_targets = blockTargets;
-        
+
         let mw = require('../mongo-wrapper');
 
-        let c = await mw.Config.findOne({instaAccId: job.data.instaAccId});
+        let c = await mw.Config.findOne({instaAccId: acc.instaAccountId});
+
+        console.log(acc.instaAccountId);
 
         const finalConfig = {...config, ...c._doc};
 
