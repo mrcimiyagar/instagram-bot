@@ -69,7 +69,7 @@ function createQueue(acc) {
 
         const finalConfig = {...config, ...c._doc};
 
-        fs.writeFile(`./InstaPyBot/${job.data.instaAccId}.json`, JSON.stringify(finalConfig), (err) => {
+        fs.writeFile(`./InstaPyBot/${job.data.instaAccId}.json`, JSON.stringify(finalConfig), async (err) => {
             if (err) {
                 console.log(err);
                 return;
