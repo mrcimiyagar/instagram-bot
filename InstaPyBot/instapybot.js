@@ -69,10 +69,15 @@ function createQueue(acc) {
 
         const finalConfig = {...config, ...c._doc};
 
-        await fs.writeFile(`./InstaPyBot/${job.data.instaAccId}.json`, JSON.stringify(finalConfig));
-        console.log("Config has been written to disk.");
-        await execCommand('python3 instapybot.py ' + job.data.instaAccId + ' "' + job.data.username + '" "' + job.data.password + '"');
-        done && done();
+        fs.writeFile(`./InstaPyBot/${job.data.instaAccId}.json`, JSON.stringify(finalConfig), (err) => {
+            if (err) {
+                console.log(err);
+                return;
+            }
+            console.log("Config has been written to disk.");
+            await execCommand('python3 instapybot.py ' + job.data.instaAccId + ' "' + job.data.username + '" "' + job.data.password + '"');
+            done && done();
+        });
     });
     stopJobs.process('account-stop-agent-jobs-' + acc.instaAccountId, async function (job, done) {
         await killInstaAgent(job.data.instaAccId);
