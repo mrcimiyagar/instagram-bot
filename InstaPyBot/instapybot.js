@@ -67,8 +67,6 @@ function createQueue(acc) {
 
         let c = await mw.Config.findOne({instaAccId: acc.instaAccountId});
 
-        console.log(acc.instaAccountId);
-
         const finalConfig = {...config, ...c._doc};
 
         await fs.writeFile(`./InstaPyBot/${job.data.instaAccId}.json`, JSON.stringify(finalConfig));
