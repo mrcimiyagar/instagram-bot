@@ -123,4 +123,5 @@ async function execCommand(command) {
     child.on('close', function (code) {
         console.log('closing code: ' + code);
     });
+    await child;
 }
