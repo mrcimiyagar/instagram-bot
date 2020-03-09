@@ -108,7 +108,7 @@ module.exports = {
     notifyInstaAccountCreated: function (acc) {
         createQueue(acc);
     },
-    runInstaAgent: function (instaAccId, username, password) {
+    runInstaAgent: async function (instaAccId, username, password) {
         let job = runJobs.create('account-run-agent-jobs-' + instaAccId, {
             instaAccId : instaAccId,
             username : username,
