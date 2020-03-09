@@ -95,7 +95,7 @@ module.exports = {
     notifyInstaAccountCreated: function (acc) {
         createQueue(acc);
     },
-    runInstaAgent: async function (instaAccId, username, password) {
+    runInstaAgent: function (instaAccId, username, password) {
         let job = runJobs.create('account-run-agent-jobs-' + instaAccId, {
             instaAccId : instaAccId,
             username : username,
@@ -103,7 +103,7 @@ module.exports = {
         });
         job.save(function () {});
     },
-    stopInstaAgent: async function (instaAccId) {
+    stopInstaAgent: function (instaAccId) {
         let job = stopJobs.create('account-stop-agent-jobs-' + instaAccId, {
             instaAccId : instaAccId
         });
