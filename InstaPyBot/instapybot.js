@@ -19,12 +19,6 @@ async function killInstaAgent(instaAccId) {
 function createQueue(acc) {
     runJobs.process('account-run-agent-jobs-' + acc.instaAccountId, async function (job, done) {
 
-        let mw = require('../mongo-wrapper');
-        while (mw.Config === undefined || mw.configSchema === undefined) {
-            await sleep(1000);
-            mw = require('../mongo-wrapper');
-        }
-
         await killInstaAgent(job.data.instaAccId);
 
         let config = {};
@@ -68,15 +62,10 @@ function createQueue(acc) {
         });
         config.block = {};
         config.block.block_targets = blockTargets;
+        
+        let mw = require('../mongo-wrapper');
 
         let c = await mw.Config.findOne({instaAccId: job.data.instaAccId});
-
-        while (c === null) {
-            await sleep(1000);
-            c = await mw.Config.findOne({instaAccId: job.data.instaAccId});
-        }
-
-        console.log("hello..............................................................................................");
 
         const finalConfig = {...config, ...c._doc};
 
