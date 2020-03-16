@@ -24,6 +24,7 @@ interface accRes {
   instaAccounts: account[];
   message: string;
 }
+
 @Component({
   selector: "app-content4",
   templateUrl: "./content4.component.html",
@@ -95,7 +96,6 @@ export class Content4Component implements OnInit {
         data
       )
       .subscribe(responseData => {
-        this.targetsCount = responseData.likeTargets.length;
         this.targets = responseData.likeTargets;
         console.log(this.targets);
         this.loading = false;

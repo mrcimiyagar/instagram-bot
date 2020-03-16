@@ -96,7 +96,6 @@ export class Content3Component implements OnInit {
         data
       )
       .subscribe(responseData => {
-        this.targetsCount = responseData.commentTargets.length;
         this.targets = responseData.commentTargets;
         console.log(this.targets);
         this.loading = false;
@@ -106,11 +105,14 @@ export class Content3Component implements OnInit {
     const data = {
       token: this.localUser.token,
       instaAccountId: this.localAccount.instaAccountId,
-      commentId: commentId
+      commentId
     };
     console.log(data);
     this.http
-      .post("http://45.156.184.182:3100/api/comment/remove_comment_target", data)
+      .post(
+        "http://45.156.184.182:3100/api/comment/remove_comment_target",
+        data
+      )
       .subscribe(responseData => {
         console.log(responseData);
         this.getTargets();
