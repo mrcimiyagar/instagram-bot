@@ -107,7 +107,7 @@ export class Content1Component implements OnInit {
     const data = {
       token: this.localUser.token,
       instaAccountId: this.localAccount.instaAccountId,
-      followId: followId
+      followId
     };
     console.log(data);
     this.http

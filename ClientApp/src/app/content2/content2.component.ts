@@ -41,6 +41,7 @@ export class Content2Component implements OnInit {
     private user: AuthService,
     private router: Router
   ) {
+    // tslint:disable-next-line: no-shadowed-variable
     this.user.user.subscribe(user => {
       this.localUser = user;
     });
@@ -103,7 +104,7 @@ export class Content2Component implements OnInit {
     const data = {
       token: this.localUser.token,
       instaAccountId: this.localAccount.instaAccountId,
-      tagId: tagId
+      tagId
     };
     console.log(data);
     this.http

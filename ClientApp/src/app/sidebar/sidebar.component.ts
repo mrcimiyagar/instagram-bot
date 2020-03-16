@@ -34,7 +34,9 @@ export class SidebarComponent implements OnInit {
   ) {
     this.user.user.subscribe(user => {
       this.localUser = user;
-      this.getAccout();
+      if (!!this.localUser) {
+        this.getAccout();
+      }
     });
   }
   signout() {

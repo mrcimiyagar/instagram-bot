@@ -1,44 +1,271 @@
-<div class="container-fluid p-0">
-  <div class="row p-0 mr-0">
-    <div class="col-md-2 p-0">
-      <app-sidebar></app-sidebar>
+<div class="p-4">
+  <div class="row justify-content-center">
+
+
+    <div class="col-md-3">
+      <input type="text" class="form-control" aria-label="Large" placeholder="Instagram Username"
+        aria-describedby="inputGroup-sizing-sm" #inputText>
     </div>
-    <div class="col-md-10 p-5 ">
-      <div class="row justify-content-center">
-
-
-        <div class="col-md-3">
-          <input type="text" class="form-control" aria-label="Large" placeholder="Instagram Username"
-            aria-describedby="inputGroup-sizing-sm" #inputText>
-        </div>
-        <div class="col-md-3">
-          <input type="text" class="form-control" aria-label="Large" placeholder="Instagram Password"
-            aria-describedby="inputGroup-sizing-sm" #inputText2>
-        </div>
-        <div class="col-md-3">
-          <input type="text" class="form-control" aria-label="Large" placeholder="A name for this account"
-            aria-describedby="inputGroup-sizing-sm" #inputText3>
-        </div>
-        <div class="col-md-2">
-          <button class="btn mdb-color darken-2 text-white" [disabled]="disable"
-            (click)="addInstaAccount(inputText.value,inputText2.value,inputText3.value)">Add Account</button>
-        </div>
-      </div>
-      <hr>
-      <div class="row justify-content-center">
-        <div class="col-md-3">
-          <input type="text" class="form-control" aria-label="Large" placeholder="{{localAccount.username}}" disabled
-            aria-describedby="inputGroup-sizing-sm" #inputText4>
-        </div>
-        <div class="col-md-3">
-          <button class="btn btn-danger text-white" [ngClass]="{disabled: disable2 === true}"
-            (click)=" removeInstaAccount()" type="button">Remove
-            Account</button>
-        </div>
-
-      </div>
-      <hr>
+    <div class="col-md-3">
+      <input type="text" class="form-control" aria-label="Large" placeholder="Instagram Password"
+        aria-describedby="inputGroup-sizing-sm" #inputText2>
+    </div>
+    <div class="col-md-3">
+      <input type="text" class="form-control" aria-label="Large" placeholder="A name for this account"
+        aria-describedby="inputGroup-sizing-sm" #inputText3>
+    </div>
+    <div class="col-md-2">
+      <button class="btn mdb-color darken-2 text-white" [disabled]="disable"
+        (click)="addInstaAccount(inputText.value,inputText2.value,inputText3.value)">Add Account</button>
     </div>
   </div>
+  <div class="row justify-content-center mt-3">
+    <div class="col-md-3">
+      <input type="text" class="form-control" aria-label="Large" placeholder="{{localAccount?.username}}" disabled
+        aria-describedby="inputGroup-sizing-sm" #inputText4>
+    </div>
+    <div class="col-md-3">
+      <button class="btn btn-danger text-white" [ngClass]="{disabled: disable2 === true}"
+        (click)=" removeInstaAccount()" type="button">Remove
+        Account</button>
+    </div>
+
+  </div>
+  <hr>
+  <form (ngSubmit)="saveConfig()" #f="ngForm">
+    <div class="row justify-content-center mb-2">
+      <div class="col-md">
+        <strong>
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="defaultUnchecked" ngModel name="EnableComment">
+            <label class="custom-control-label" for="defaultUnchecked">Enable Comment</label>
+          </div>
+        </strong>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md form-group">
+        <label for="CTextarea1">Normal Comment</label>
+        <textarea class="form-control rounded-0" id="CTextarea1" rows="4" ngModel name="NormalComment"></textarea>
+      </div>
+      <div class="col-md form-group">
+        <label for="CTextarea2">Photo Comment</label>
+        <textarea class="form-control rounded-0" id="CTextarea2" rows="4" ngModel name="PhotoComment"></textarea>
+      </div>
+      <div class="col-md form-group">
+        <label for="CTextarea3">Video Comment</label>
+        <textarea class="form-control rounded-0" id="CTextarea3" rows="4" ngModel name="VideoComment"></textarea>
+      </div>
+    </div>
+    <hr>
+    <!-- Follow Setting -->
+    <div class="row justify-content-center mb-2">
+      <div class="col-md">
+        <strong>
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="defaultUnchecked2" ngModel
+              name="DontUnfallowActiveUser">
+            <label class="custom-control-label" for="defaultUnchecked2">Don't unfallow active user</label>
+          </div>
+        </strong>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md form-group">
+        <label for="FTextarea1">Follower Target</label>
+        <textarea class="form-control rounded-0" id="FTextarea1" rows="4" ngModel name="FollowerTarget"></textarea>
+      </div>
+      <div class="col-md form-group">
+        <label for="FTextarea2">Following Target</label>
+        <textarea class="form-control rounded-0" id="FTextarea2" rows="4" ngModel name="FollowingTarget"></textarea>
+      </div>
+      <div class="col-md form-group">
+        <label for="FTextarea3">Follow users by tags</label>
+        <textarea class="form-control rounded-0" id="FTextarea3" rows="4" ngModel name="FollowUsersByTags"></textarea>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md form-group">
+        <label for="FTextarea4">Follow Likers</label>
+        <textarea class="form-control rounded-0" id="FTextarea4" rows="4" ngModel name="FollowLikers"></textarea>
+      </div>
+      <div class="col-md form-group">
+        <label for="FTextarea5">Follow users commenters</label>
+        <textarea class="form-control rounded-0" id="FTextarea5" rows="4" ngModel
+          name="FollowUsersCommenters"></textarea>
+      </div>
+      <div class="col-md form-group">
+        <label for="FTextarea6">Unfallow Users</label>
+        <textarea class="form-control rounded-0" id="FTextarea6" rows="4" ngModel name="UnfallowUsers"></textarea>
+      </div>
+      <div class="col-md form-group">
+        <label for="FTextarea7">Unfallow Strategy</label>
+        <textarea class="form-control rounded-0" id="FTextarea7" rows="4" ngModel name="UnfallowStrategy"></textarea>
+      </div>
+    </div>
+    <hr>
+    <!-- interaction Setting -->
+    <div class="row justify-content-center">
+      <div class="col-md">
+        <strong>
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="defaultUnchecked3" ngModel
+              name="EnableRelationshipsBounds">
+            <label class="custom-control-label" for="defaultUnchecked3">Enable relationships bounds</label>
+          </div>
+        </strong>
+      </div>
+      <div class="col-md">
+        <strong>
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="defaultUnchecked4" ngModel
+              name="InteractWithLowFollowers">
+            <label class="custom-control-label" for="defaultUnchecked4">Interact with low followers</label>
+          </div>
+        </strong>
+      </div>
+    </div>
+    <div class="row justify-content-center mb-2">
+      <div class="col-md">
+        <strong>
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="defaultUnchecked5" ngModel
+              name="EnableLikeInteractionBounds">
+            <label class="custom-control-label" for="defaultUnchecked5">Enable like interaction bounds</label>
+          </div>
+        </strong>
+      </div>
+      <div class="col-md">
+        <strong>
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="defaultUnchecked6" ngModel
+              name="EnableCommentInteractionBounds">
+            <label class="custom-control-label" for="defaultUnchecked6">Enable comment interaction bounds</label>
+          </div>
+        </strong>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md form-group">
+        <label for="ITextarea1">Min Follower</label>
+        <input type="text" class="form-control form-control-sm rounded-0" id="ITextarea1" ngModel name="MinFollower">
+      </div>
+      <div class="col-md form-group">
+        <label for="ITextarea2">Min Following</label>
+        <input type="text" class="form-control form-control-sm rounded-0" id="ITextarea2" ngModel name="MinFollowing">
+      </div>
+      <div class="col-md form-group">
+        <label for="ITextarea3">Max Follower</label>
+        <input type="text" class="form-control form-control-sm rounded-0" id="ITextarea3" ngModel name="MaxFollower">
+      </div>
+      <div class="col-md form-group">
+        <label for="ITextarea4">Max Following</label>
+        <input type="text" class="form-control form-control-sm rounded-0" id="ITextarea4" ngModel name="MaxFollowing">
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md form-group">
+        <label for="ITextarea5">Min Like</label>
+        <input type="text" class="form-control form-control-sm rounded-0" id="ITextarea5" ngModel name="MinLike">
+      </div>
+      <div class="col-md form-group">
+        <label for="ITextarea6">Max Like</label>
+        <input type="text" class="form-control form-control-sm rounded-0" id="ITextarea6" ngModel name="MaxLike">
+      </div>
+      <div class="col-md form-group">
+        <label for="ITextarea7">Min Comment</label>
+        <input type="text" class="form-control form-control-sm rounded-0" id="ITextarea7" ngModel name="MinComment">
+      </div>
+      <div class="col-md form-group">
+        <label for="ITextarea8">Max Comment</label>
+        <input type="text" class="form-control form-control-sm rounded-0" id="ITextarea8" ngModel name="MaxComment">
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md form-group">
+        <label for="ITextarea9">Blacklist</label>
+        <textarea class="form-control rounded-0" id="ITextarea9" rows="4" ngModel name="Blacklist"></textarea>
+      </div>
+      <div class="col-md form-group">
+        <label for="ITextarea10">Story to watch (tags)</label>
+        <textarea class="form-control rounded-0" id="ITextarea10" rows="4" ngModel name="StoryToWatchTtags"></textarea>
+      </div>
+      <div class="col-md form-group">
+        <label for="ITextarea11">Story to watch (users)</label>
+        <textarea class="form-control rounded-0" id="ITextarea11" rows="4" ngModel name="StoryToWatchUsers"></textarea>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md form-group">
+        <label for="ITextarea12">Good friends for not intracting</label>
+        <textarea class="form-control rounded-0" id="ITextarea12" rows="4" ngModel
+          name="GoodFriendsForNotIntracting"></textarea>
+      </div>
+      <div class="col-md form-group">
+        <label for="ITextarea13">Ignore users for likes</label>
+        <textarea class="form-control rounded-0" id="ITextarea13" rows="4" ngModel
+          name="IgnoreUsersForLikes"></textarea>
+      </div>
+    </div>
+    <hr>
+    <!-- tag Setting -->
+    <div class="row justify-content-center">
+      <div class="col-md form-group">
+        <label for="TTextarea1">Smart Hashtag</label>
+        <textarea class="form-control rounded-0" id="TTextarea1" rows="4" ngModel name="SmartHashtag"></textarea>
+      </div>
+      <div class="col-md form-group">
+        <label for="TTextarea2">Smart Hashtag Limit</label>
+        <input type="text" class="form-control form-control-sm rounded-0" id="TTextarea2" ngModel
+          name="SmartHashtagLimit">
+      </div>
+    </div>
+    <hr>
+    <!-- like Setting -->
+
+    <div class="row justify-content-center mb-2">
+      <div class="col-md">
+        <strong>
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="defaultUnchecked8" ngModel name="EnableLikeByTag">
+            <label class="custom-control-label" for="defaultUnchecked8">Enable like By Tag</label>
+          </div>
+        </strong>
+      </div>
+      <div class="col-md">
+        <strong>
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="defaultUnchecked9" ngModel name="UseSmartHashtag">
+            <label class="custom-control-label" for="defaultUnchecked9">Use Smart Hashtag</label>
+          </div>
+        </strong>
+      </div>
+      <div class="col-md form-group">
+        <label for="LTextarea1">Like By Tags Count</label>
+        <input type="text" class="form-control form-control-sm rounded-0" id="LTextarea1" ngModel
+          name="LikeByTagsCount">
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md form-group">
+        <label for="LTextarea2">Like by tag</label>
+        <textarea class="form-control rounded-0" id="LTextarea2" rows="4" ngModel name="LikeByTag"></textarea>
+      </div>
+      <div class="col-md form-group">
+        <label for="LTextarea3">Like posts with words</label>
+        <textarea class="form-control rounded-0" id="LTextarea3" rows="4" ngModel name="LikePostsWithWords"></textarea>
+      </div>
+      <div class="col-md form-group">
+        <label for="LTextarea4">Don't like tags & words</label>
+        <textarea class="form-control rounded-0" id="LTextarea4" rows="4" ngModel name="DontLikeTagsWords"></textarea>
+      </div>
+      <div class="col-md form-group">
+        <label for="LTextarea5">Ignore Words</label>
+        <textarea class="form-control rounded-0" id="LTextarea5" rows="4" ngModel name="IgnoreWords"></textarea>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success btn-block" id="button">Save Config
+    </button>
+  </form>
 
 </div>
