@@ -17,7 +17,6 @@ interface accRes {
   message: string;
 }
 interface Config {
-  instaAccId: number;
   comment: {
     enable_comment: boolean;
     normal_comment_contents: string[];
@@ -64,6 +63,11 @@ interface Config {
     ignore_if_contains_words: string[];
   };
 }
+interface ConfigRes {
+  status: string;
+  config: Config;
+  message: string;
+}
 @Component({
   selector: "app-setting",
   templateUrl: "./setting.component.html",
@@ -78,6 +82,7 @@ export class SettingComponent implements OnInit {
   disable = false;
   disable2 = true;
   myConfig: Config;
+  serverConfig: Config;
 
   constructor(
     private http: HttpClient,
@@ -107,6 +112,7 @@ export class SettingComponent implements OnInit {
       .subscribe(responseData => {
         this.localAccount = responseData.instaAccounts[0];
         console.log(this.localAccount);
+        this.getConfig();
         if (!this.localAccount) {
           console.log("nulle");
           this.disable = false;
@@ -146,11 +152,18 @@ export class SettingComponent implements OnInit {
         this.getAccout();
       });
   }
+  stringToArray(myString: string): string[] {
+    return myString.trim().split(",");
+  }
   saveConfig() {
-    this.myConfig = this.getConfig();
+    this.myConfig = this.getFormValue();
+    const splited = this.myConfig.comment.normal_comment_contents
+      .toString()
+      .split(",");
+    console.log("split: " + splited);
     const data = {
       token: this.localUser.token,
-      instaAccountId: this.localUser.instaAccountId,
+      instaAccountId: this.localAccount.instaAccountId,
       config: this.myConfig
     };
     console.log(data);
@@ -160,63 +173,105 @@ export class SettingComponent implements OnInit {
         console.log(responseData);
       });
   }
-  getConfig() {
+  getFormValue() {
     let myConfig: Config;
     myConfig = {
-      instaAccId: this.localUser.instaAccountId,
       comment: {
         enable_comment: !!this.form.value.EnableComment,
-        normal_comment_contents: this.form.value.NormalComment,
-        photo_comment_contents: this.form.value.PhotoComment,
-        video_comment_contents: this.form.value.VideoComment
+        normal_comment_contents: this.stringToArray(
+          this.form.value.NormalComment
+        ),
+        photo_comment_contents: this.stringToArray(
+          this.form.value.PhotoComment
+        ),
+        video_comment_contents: this.stringToArray(this.form.value.VideoComment)
       },
       follow: {
-        follow_followers_target: this.form.value.FollowerTarget,
-        follow_followings_target: this.form.value.FollowingTarget,
-        follow_users_by_tags: this.form.value.FollowUsersByTags,
-        follow_likers: this.form.value.FollowLikers,
-        follow_users_posts_commenters: this.form.value.FollowUsersCommenters,
-        unfollow_users: this.form.value.UnfallowUsers,
-        unfollow_strategy: this.form.value.UnfallowStrategy,
+        follow_followers_target: this.stringToArray(
+          this.form.value.FollowerTarget
+        ),
+        follow_followings_target: this.stringToArray(
+          this.form.value.FollowingTarget
+        ),
+        follow_users_by_tags: this.stringToArray(
+          this.form.value.FollowUsersByTags
+        ),
+        follow_likers: this.stringToArray(this.form.value.FollowLikers),
+        follow_users_posts_commenters: this.stringToArray(
+          this.form.value.FollowUsersCommenters
+        ),
+        unfollow_users: this.stringToArray(this.form.value.UnfallowUsers),
+        unfollow_strategy: this.stringToArray(this.form.value.UnfallowStrategy),
         dont_unfollow_active_users: !!this.form.value.DontUnfallowActiveUser
       },
       interaction: {
         enable_relationships_bounds: !!this.form.value
           .EnableRelationshipsBounds,
-        relationships_bounds_min_follower: this.form.value.MinFollower,
-        relationships_bounds_min_following: this.form.value.MinFollowing,
-        relationships_bounds_max_follower: this.form.value.MaxFollower,
-        relationships_bounds_max_following: this.form.value.MaxFollowing,
+        relationships_bounds_min_follower: Number(this.form.value.MinFollower),
+        relationships_bounds_min_following: Number(
+          this.form.value.MinFollowing
+        ),
+        relationships_bounds_max_follower: Number(this.form.value.MaxFollower),
+        relationships_bounds_max_following: Number(
+          this.form.value.MaxFollowing
+        ),
         interact_with_low_followers: !!this.form.value.InteractWithLowFollowers,
         enable_like_interaction_bound: !!this.form.value
           .EnableLikeInteractionBounds,
-        like_interaction_bound_min: this.form.value.MinLike,
-        like_interaction_bound_max: this.form.value.MaxLike,
+        like_interaction_bound_min: Number(this.form.value.MinLike),
+        like_interaction_bound_max: Number(this.form.value.MaxLike),
         enable_comment_interaction_bound: !!this.form.value
           .EnableCommentInteractionBounds,
-        comment_interaction_bound_min: this.form.value.MinComment,
-        comment_interaction_bound_max: this.form.value.MaxComment,
-        blacklist: this.form.value.Blacklist,
-        watch_stories_by_tags: this.form.value.StoryToWatchTtags,
-        watch_stories_by_users: this.form.value.StoryToWatchUsers,
-        good_friends_list_for_not_interacting: this.form.value
-          .GoodFriendsForNotIntracting,
-        ignored_users_list_for_like: this.form.value.IgnoreUsersForLikes
+        comment_interaction_bound_min: Number(this.form.value.MinComment),
+        comment_interaction_bound_max: Number(this.form.value.MaxComment),
+        blacklist: this.stringToArray(this.form.value.Blacklist),
+        watch_stories_by_tags: this.stringToArray(
+          this.form.value.StoryToWatchTtags
+        ),
+        watch_stories_by_users: this.stringToArray(
+          this.form.value.StoryToWatchUsers
+        ),
+        good_friends_list_for_not_interacting: this.stringToArray(
+          this.form.value.GoodFriendsForNotIntracting
+        ),
+        ignored_users_list_for_like: this.stringToArray(
+          this.form.value.IgnoreUsersForLikes
+        )
       },
       tag: {
-        smart_hashtags: this.form.value.SmartHashtag,
-        smart_hashtags_limit: this.form.value.SmartHashtagLimit
+        smart_hashtags: this.stringToArray(this.form.value.SmartHashtag),
+        smart_hashtags_limit: Number(this.form.value.SmartHashtagLimit)
       },
       like: {
         enable_like_by_tags: !!this.form.value.EnableLikeByTag,
-        like_by_tags_count: this.form.value.LikeByTagsCount,
+        like_by_tags_count: Number(this.form.value.LikeByTagsCount),
         like_by_tags_use_smart_hashtags: !!this.form.value.UseSmartHashtag,
-        like_by_tags_list: this.form.value.LikeByTag,
-        like_posts_containing_words: this.form.value.LikePostsWithWords,
-        dont_like_tags_and_words: this.form.value.DontLikeTagsWords,
-        ignore_if_contains_words: this.form.value.IgnoreWords
+        like_by_tags_list: this.stringToArray(this.form.value.LikeByTag),
+        like_posts_containing_words: this.stringToArray(
+          this.form.value.LikePostsWithWords
+        ),
+        dont_like_tags_and_words: this.stringToArray(
+          this.form.value.DontLikeTagsWords
+        ),
+        ignore_if_contains_words: this.stringToArray(
+          this.form.value.IgnoreWords
+        )
       }
     };
     return myConfig;
+  }
+  getConfig() {
+    const data = {
+      token: this.localUser.token,
+      instaAccountId: this.localAccount.instaAccountId
+    };
+    console.log(data);
+    this.http
+      .post<ConfigRes>("http://45.156.184.182:3100/api/config/get_config", data)
+      .subscribe(responseData => {
+        console.log(responseData);
+        this.serverConfig = responseData.config;
+        this.form.setValue(this.serverConfig);
+      });
   }
 }
