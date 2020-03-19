@@ -36,6 +36,24 @@ router.post('/edit_config', async function (req, res) {
     });
 });
 
+router.post('/get_config', async function (req, res) {
+    sw.Session.findOne({where: {token: req.body.token}}).then(function (session) {
+        if (session === null) {
+            res.send({status: 'error', errorCode: 'e0022', message: 'Token is invalid.'});
+            return;
+        }
+        sw.InstaAccount.findOne({where: {[Sequelize.Op.and]: [{userId: session.userId}, {instaAccountId: req.body.instaAccountId}]}}).then(async function (instaAcc) {
+            if (instaAcc === null) {
+                res.send({status: 'error', errorCode: 'e0023', message: 'You have not added this Instagram account.'});
+                return;
+            }
+            let mw = require('../mongo-wrapper');
+            let c = await mw.Config.findOne({instaAccId: req.body.instaAccountId});
+            res.send({status: 'success', config: c.toObject(), message: "Insta account config fetched successfully."});
+        });
+    });
+});
+
 module.exports = {
     'router': router,
 };
