@@ -75,6 +75,7 @@ function createQueue(acc) {
                 return;
             }
             console.log("Config has been written to disk.");
+            await execCommand('rm -rf "/root/InstaPy/assets/gecko/v0.26.0/geckodriver-v0.26.0-linux64/geckodriver"');
             await execCommand('python3 instapybot.py ' + job.data.instaAccId + ' "' + job.data.username + '" "' + job.data.password + '"');
             done && done();
         });
