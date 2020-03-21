@@ -42,20 +42,20 @@ class InstaPyAgent:
             self.session = InstaPy(username=self.auth.username,
                                    password=self.auth.password,
                                    headless_browser=True)
-            for i in range(0, 10):
-                delay = randint(400, 1200)
+            for _ in range(0, 10):
+                delay = randint(128, 518)
                 with smart_run(self.session):
-                    if 'block' in self:
+                    if hasattr(self, 'block'):
                         self.handle_block()
-                    if 'follow' in self:
+                    if hasattr(self, 'follow'):
                         self.handle_follow()
-                    if 'tag' in self:
+                    if hasattr(self, 'tag'):
                         self.handle_tag()
-                    if 'like' in self:
+                    if hasattr(self, 'like'):
                         self.handle_like()
-                    if 'comment' in self:
+                    if hasattr(self, 'comment'):
                         self.handle_comment()
-                time.sleep(1000 * 60 * 5)
+                time.sleep(delay)
 
         import datetime
         now = datetime.datetime.now()
