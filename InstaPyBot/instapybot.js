@@ -17,16 +17,14 @@ async function killInstaAgent(instaAccId) {
 }
 
 function removeEmptyArrays(obj) {
-    for (let prop in obj) {
-        if (typeof(obj[prop]) === 'object') {
-            removeEmptyArrays(obj[prop]);
+    for (let prop in obj) {        
+        if (Array.isArray(obj[prop])) {
+            obj[prop] = obj[prop].filter(function (el) {
+                return el != "";
+            });
         }
-        else {
-            if (Array.isArray(obj[prop])) {
-                obj[prop] = obj[prop].filter(function (el) {
-                    return el != "";
-                });
-            }
+        else if (typeof(obj[prop]) === 'object') {
+            removeEmptyArrays(obj[prop]);
         }
     }
 }
