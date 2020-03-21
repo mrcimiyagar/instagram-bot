@@ -7,6 +7,19 @@ const {sleep} = require("../tools");
 
 const router = express.Router();
 
+function removeEmptyArrays(obj) {
+    for (prop in obj) {
+        if (typeof(obj[prop]) === 'object') {
+            removeEmptyArrays(obj[prop]);
+        }
+        else {
+            if (Array.isArray(obj[prop]) && obj[prop].length === 1 && obj[prop][0] === "") {
+                obj[prop] = [];
+            }
+        }
+    }
+}
+
 router.post('/edit_config', async function (req, res) {
     sw.Session.findOne({where: {token: req.body.token}}).then(function (session) {
         if (session === null) {
@@ -19,6 +32,7 @@ router.post('/edit_config', async function (req, res) {
                 return;
             }
             let c = req.body.config;
+            removeEmptyArrays(c);
             let mw = require('../mongo-wrapper');
             c = mw.Config.hydrate(c);
             let instaAccId = req.body.instaAccountId;
