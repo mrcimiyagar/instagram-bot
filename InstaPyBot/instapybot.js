@@ -22,8 +22,10 @@ function removeEmptyArrays(obj) {
             removeEmptyArrays(obj[prop]);
         }
         else {
-            if (Array.isArray(obj[prop]) && obj[prop].length === 1 && obj[prop][0] === "") {
-                obj[prop] = [];
+            if (Array.isArray(obj[prop])) {
+                obj[prop] = array.filter(function (el) {
+                    return el != "";
+                });
             }
         }
     }
