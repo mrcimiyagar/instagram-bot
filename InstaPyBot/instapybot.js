@@ -17,7 +17,7 @@ async function killInstaAgent(instaAccId) {
 }
 
 function removeEmptyArrays(obj) {
-    for (prop in obj) {
+    for (let prop in obj) {
         if (typeof(obj[prop]) === 'object') {
             removeEmptyArrays(obj[prop]);
         }
