@@ -16,6 +16,19 @@ async function killInstaAgent(instaAccId) {
     await execCommand(`pkill insta-ai-bot-` + instaAccId);
 }
 
+function removeEmptyArrays(obj) {
+    for (prop in obj) {
+        if (typeof(obj[prop]) === 'object') {
+            removeEmptyArrays(obj[prop]);
+        }
+        else {
+            if (Array.isArray(obj[prop]) && obj[prop].length === 1 && obj[prop][0] === "") {
+                obj[prop] = [];
+            }
+        }
+    }
+}
+
 function createQueue(acc) {
     runJobs.process('account-run-agent-jobs-' + acc.instaAccountId, async function (job, done) {
 
@@ -68,6 +81,8 @@ function createQueue(acc) {
         let c = await mw.Config.findOne({instaAccId: acc.instaAccountId});
 
         const finalConfig = {...config, ...c._doc};
+
+        removeEmptyArrays(finalConfig);
 
         fs.writeFile(`./InstaPyBot/${job.data.instaAccId}.json`, JSON.stringify(finalConfig), async (err) => {
             if (err) {
