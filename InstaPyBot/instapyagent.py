@@ -45,11 +45,16 @@ class InstaPyAgent:
             for i in range(0, 10):
                 delay = randint(400, 1200)
                 with smart_run(self.session):
-                    self.handle_block()
-                    self.handle_follow()
-                    self.handle_tag()
-                    self.handle_like()
-                    self.handle_comment()
+                    if 'block' in self:
+                        self.handle_block()
+                    if 'follow' in self:
+                        self.handle_follow()
+                    if 'tag' in self:
+                        self.handle_tag()
+                    if 'like' in self:
+                        self.handle_like()
+                    if 'comment' in self:
+                        self.handle_comment()
                 time.sleep(1000 * 60 * 5)
 
         import datetime
