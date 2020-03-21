@@ -23,7 +23,7 @@ function removeEmptyArrays(obj) {
         }
         else {
             if (Array.isArray(obj[prop])) {
-                obj[prop] = array.filter(function (el) {
+                obj[prop] = obj[prop].filter(function (el) {
                     return el != "";
                 });
             }
