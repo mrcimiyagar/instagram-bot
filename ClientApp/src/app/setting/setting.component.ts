@@ -153,13 +153,13 @@ export class SettingComponent implements OnInit {
       });
   }
   stringToArray(myString: string): string[] {
-    return myString.trim().split(",");
+    return myString.replace(/\s/g, "").split(",");
   }
   saveConfig() {
     this.myConfig = this.getFormValue();
     const splited = this.myConfig.comment.normal_comment_contents
       .toString()
-      .split(",");
+      .trim();
     console.log("split: " + splited);
     const data = {
       token: this.localUser.token,
@@ -171,6 +171,7 @@ export class SettingComponent implements OnInit {
       .post("http://45.156.184.182:3100/api/config/edit_config", data)
       .subscribe(responseData => {
         console.log(responseData);
+        this.getConfig();
       });
   }
   getFormValue() {
@@ -271,7 +272,58 @@ export class SettingComponent implements OnInit {
       .subscribe(responseData => {
         console.log(responseData);
         this.serverConfig = responseData.config;
-        this.form.setValue(this.serverConfig);
+        this.form.setValue({
+          EnableComment: responseData.config.comment.enable_comment,
+          NormalComment: responseData.config.comment.normal_comment_contents.toString(),
+          PhotoComment: responseData.config.comment.photo_comment_contents.toString(),
+          VideoComment: responseData.config.comment.video_comment_contents.toString(),
+          DontUnfallowActiveUser:
+            responseData.config.follow.dont_unfollow_active_users,
+          FollowerTarget: responseData.config.follow.follow_followers_target.toString(),
+          FollowingTarget: responseData.config.follow.follow_followings_target.toString(),
+          FollowUsersByTags: responseData.config.follow.follow_users_by_tags.toString(),
+          FollowLikers: responseData.config.follow.follow_likers.toString(),
+          FollowUsersCommenters: responseData.config.follow.follow_users_posts_commenters.toString(),
+          UnfallowUsers: responseData.config.follow.unfollow_users.toString(),
+          UnfallowStrategy: responseData.config.follow.unfollow_strategy.toString(),
+          EnableRelationshipsBounds:
+            responseData.config.interaction.enable_relationships_bounds,
+          InteractWithLowFollowers:
+            responseData.config.interaction.interact_with_low_followers,
+          EnableLikeInteractionBounds:
+            responseData.config.interaction.enable_like_interaction_bound,
+          EnableCommentInteractionBounds:
+            responseData.config.interaction.enable_comment_interaction_bound,
+          MinFollower:
+            responseData.config.interaction.relationships_bounds_min_follower,
+          MinFollowing:
+            responseData.config.interaction.relationships_bounds_min_following,
+          MaxFollower:
+            responseData.config.interaction.relationships_bounds_max_follower,
+          MaxFollowing:
+            responseData.config.interaction.relationships_bounds_max_following,
+          MinLike: responseData.config.interaction.like_interaction_bound_min,
+          MaxLike: responseData.config.interaction.like_interaction_bound_max,
+          MinComment:
+            responseData.config.interaction.comment_interaction_bound_min,
+          MaxComment:
+            responseData.config.interaction.comment_interaction_bound_max,
+          Blacklist: responseData.config.interaction.blacklist.toString(),
+          StoryToWatchTtags: responseData.config.interaction.watch_stories_by_tags.toString(),
+          StoryToWatchUsers: responseData.config.interaction.watch_stories_by_users.toString(),
+          GoodFriendsForNotIntracting: responseData.config.interaction.good_friends_list_for_not_interacting.toString(),
+          IgnoreUsersForLikes: responseData.config.interaction.ignored_users_list_for_like.toString(),
+          SmartHashtag: responseData.config.tag.smart_hashtags.toString(),
+          SmartHashtagLimit: responseData.config.tag.smart_hashtags_limit,
+          EnableLikeByTag: responseData.config.like.enable_like_by_tags,
+          UseSmartHashtag:
+            responseData.config.like.like_by_tags_use_smart_hashtags,
+          LikeByTagsCount: responseData.config.like.like_by_tags_count,
+          LikeByTag: responseData.config.like.like_by_tags_list.toString(),
+          LikePostsWithWords: responseData.config.like.like_posts_containing_words.toString(),
+          DontLikeTagsWords: responseData.config.like.dont_like_tags_and_words.toString(),
+          IgnoreWords: responseData.config.like.ignore_if_contains_words.toString()
+        });
       });
   }
 }
