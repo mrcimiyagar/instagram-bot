@@ -34,7 +34,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'ClientApp/dist/dimpedia')));
 
 prepareTools().then(function () {});
 
@@ -48,17 +48,8 @@ app.use('/api/comment', comment);
 app.use('/api/config', config.router);
 app.use('/api/index', index);
 
-app.get('/app/*', (req, res) => {
-  let requestedResource = req.path.substr('/app/'.length);
-  if (requestedResource === 'signin' ||
-      requestedResource === 'signup' ||
-      requestedResource === 'home') {
-    requestedResource = 'index.html';
-  }
-  else if (requestedResource.startsWith('admin') || requestedResource.startsWith('rtl') || requestedResource.startsWith('static')) {
-    requestedResource = requestedResource.substr(requestedResource.lastIndexOf('static'));
-  }
-  res.sendFile(path.join(__dirname, 'ClientApp/build', requestedResource));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'ClientApp/dist/dimpedia/index.html'));
 });
 
 // catch 404 and forward to error handler

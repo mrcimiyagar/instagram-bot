@@ -16,6 +16,19 @@ async function killInstaAgent(instaAccId) {
     await execCommand(`pkill insta-ai-bot-` + instaAccId);
 }
 
+function removeEmptyArrays(obj) {
+    for (let prop in obj) {        
+        if (Array.isArray(obj[prop])) {
+            obj[prop] = obj[prop].filter(function (el) {
+                return el != "";
+            });
+        }
+        else if (typeof(obj[prop]) === 'object') {
+            removeEmptyArrays(obj[prop]);
+        }
+    }
+}
+
 function createQueue(acc) {
     runJobs.process('account-run-agent-jobs-' + acc.instaAccountId, async function (job, done) {
 
@@ -69,12 +82,15 @@ function createQueue(acc) {
 
         const finalConfig = {...config, ...c._doc};
 
+        removeEmptyArrays(finalConfig);
+
         fs.writeFile(`./InstaPyBot/${job.data.instaAccId}.json`, JSON.stringify(finalConfig), async (err) => {
             if (err) {
                 console.log(err);
                 return;
             }
             console.log("Config has been written to disk.");
+            await execCommand('rm -rf "/root/InstaPy/assets/gecko/v0.26.0/geckodriver-v0.26.0-linux64/geckodriver"');
             await execCommand('python3 instapybot.py ' + job.data.instaAccId + ' "' + job.data.username + '" "' + job.data.password + '"');
             done && done();
         });
@@ -123,5 +139,4 @@ async function execCommand(command) {
     child.on('close', function (code) {
         console.log('closing code: ' + code);
     });
-    await child;
 }
